@@ -29,6 +29,8 @@ protected:
         response.set_total_count(result.size());
     }
 
+
+
     virtual void fillEntity(aminer::DetailedEntity*, sae::io::VertexIterator*) = 0;
 
     std::unique_ptr<IndexedGraph> ig;

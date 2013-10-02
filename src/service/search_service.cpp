@@ -3,8 +3,9 @@
 #include "interface.pb.h"
 #include "../search/event.hpp"
 #include "../search/entity_searcher.hpp"
-#include "search_service.hpp"
 #include "../search/aminer_data.hpp"
+//#include "process_query.hpp"
+#include "search_service.hpp"
 
 using namespace std;
 using namespace aminer;
@@ -27,47 +28,18 @@ namespace {
     }
 }
 
-struct AuthorService : public SearchServiceBase {
-    AuthorService(std::unique_ptr<IndexedGraph>&& ig) : SearchServiceBase(std::move(ig)) {
-    }
-
-    SERVICE(searchAuthor, EntitySearchRequest, EntitySearchResponse) {
-        auto searcher = EntitySearcher(ig.get());
-        auto results = searcher.search(WeightedType{{"Author", 1.0}}, WeightedType{{"Author", 1.0}, {"Publication", 1.0}}, request.query());
-        fillSearchResponse(request, response, results);
-        return true;
-    }
-};
-
-struct ConfService : public SearchServiceBase {
-    ConfService(std::unique_ptr<IndexedGraph>&& ig) : SearchServiceBase(std::move(ig)) {
-    }
-
-    SERVICE(searchConferences, EntitySearchRequest, EntitySearchResponse) {
-        auto searcher = EntitySearcher(ig.get());
-        auto results = searcher.search(WeightedType{{"JConf", 1.0}}, WeightedType{{"Publication", 1.0}}, request.query());
-        fillSearchResponse(request, response, results);
-        return true;
-    }
-};
-
-struct PubService : public SearchServiceBase {
-    PubService(std::unique_ptr<IndexedGraph>&& ig) : SearchServiceBase(std::move(ig)) {
-    }
-
-    SERVICE(searchPublications, EntitySearchRequest, EntitySearchResponse) {
-        auto searcher = EntitySearcher(ig.get());
-        auto results = searcher.search(WeightedType{{"Publication", 1.0}}, WeightedType{{"Publication", 1.0}}, request.query());
-        fillSearchResponse(request, response, results);
-        return true;
-    }
-};
-
 struct AMinerService : public SearchServiceBase {
     AMinerService(std::unique_ptr<IndexedGraph>&& ig) : SearchServiceBase(std::move(ig)) {
     }
 
     SERVICE(AuthorSearch, EntitySearchRequest, EntitySearchResponse) {
+        auto searcher = EntitySearcher(ig.get());
+        auto results = searcher.search(WeightedType{{"Author", 1.0}}, WeightedType{{"Author", 1.0}, {"Publication", 1.0}}, request.query());
+        fillSearchResponse(request, response, results);
+        return true;
+    }
+
+    SERVICE(AuthorService_searchAuthors, EntitySearchRequest, EntitySearchResponse) {
         auto searcher = EntitySearcher(ig.get());
         auto results = searcher.search(WeightedType{{"Author", 1.0}}, WeightedType{{"Author", 1.0}, {"Publication", 1.0}}, request.query());
         fillSearchResponse(request, response, results);
@@ -181,6 +153,7 @@ static void init(void *sender, void *args) {
     ADD_METHOD(PublicationSearch);
     ADD_METHOD(JConfSearch);
     ADD_METHOD(InfluenceSearchByAuthor);
+    ADD_METHOD(AuthorService_searchAuthors);
     LOG(INFO) << "aminer initialized. ";
 }
 

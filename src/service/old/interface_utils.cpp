@@ -1,8 +1,8 @@
 #include "InterfaceUtils.h"
 
-#include "adapter/publication_adapter.h"
-#include "adapter/author_adapter.h"
-#include "index_resource.h"
+#include "PublicationAdapter.h"
+#include "AuthorAdapter.h"
+#include "IndexResource.h"
 
 #include <functional>
 #include <boost/array.hpp>
