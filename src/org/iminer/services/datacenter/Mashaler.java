@@ -10,388 +10,90 @@ public final class Mashaler {
   }
   public interface EntitySearchRequestOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // required string query = 1;
+    /**
+     * <code>required string query = 1;</code>
+     */
     boolean hasQuery();
-    String getQuery();
-    
+    /**
+     * <code>required string query = 1;</code>
+     */
+    java.lang.String getQuery();
+    /**
+     * <code>required string query = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getQueryBytes();
+
     // optional int32 offset = 2;
+    /**
+     * <code>optional int32 offset = 2;</code>
+     */
     boolean hasOffset();
+    /**
+     * <code>optional int32 offset = 2;</code>
+     */
     int getOffset();
-    
+
     // optional int32 count = 3;
+    /**
+     * <code>optional int32 count = 3;</code>
+     */
     boolean hasCount();
+    /**
+     * <code>optional int32 count = 3;</code>
+     */
     int getCount();
   }
+  /**
+   * Protobuf type {@code aminer.EntitySearchRequest}
+   */
   public static final class EntitySearchRequest extends
       com.google.protobuf.GeneratedMessage
       implements EntitySearchRequestOrBuilder {
     // Use EntitySearchRequest.newBuilder() to construct.
-    private EntitySearchRequest(Builder builder) {
+    private EntitySearchRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private EntitySearchRequest(boolean noInit) {}
-    
+    private EntitySearchRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final EntitySearchRequest defaultInstance;
     public static EntitySearchRequest getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public EntitySearchRequest getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntitySearchRequest_descriptor;
-    }
-    
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntitySearchRequest_fieldAccessorTable;
-    }
-    
-    private int bitField0_;
-    // required string query = 1;
-    public static final int QUERY_FIELD_NUMBER = 1;
-    private java.lang.Object query_;
-    public boolean hasQuery() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    public String getQuery() {
-      java.lang.Object ref = query_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          query_ = s;
-        }
-        return s;
-      }
-    }
-    private com.google.protobuf.ByteString getQueryBytes() {
-      java.lang.Object ref = query_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        query_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    
-    // optional int32 offset = 2;
-    public static final int OFFSET_FIELD_NUMBER = 2;
-    private int offset_;
-    public boolean hasOffset() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    public int getOffset() {
-      return offset_;
-    }
-    
-    // optional int32 count = 3;
-    public static final int COUNT_FIELD_NUMBER = 3;
-    private int count_;
-    public boolean hasCount() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    public int getCount() {
-      return count_;
-    }
-    
-    private void initFields() {
-      query_ = "";
-      offset_ = 0;
-      count_ = 0;
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-      
-      if (!hasQuery()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      memoizedIsInitialized = 1;
-      return true;
-    }
-    
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getQueryBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, offset_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, count_);
-      }
-      getUnknownFields().writeTo(output);
-    }
-    
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-    
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getQueryBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, offset_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, count_);
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-    
-    private static final long serialVersionUID = 0L;
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
     }
-    
-    public static org.iminer.services.datacenter.Mashaler.EntitySearchRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
-    }
-    public static org.iminer.services.datacenter.Mashaler.EntitySearchRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
-    }
-    public static org.iminer.services.datacenter.Mashaler.EntitySearchRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
-    }
-    public static org.iminer.services.datacenter.Mashaler.EntitySearchRequest parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
-    }
-    public static org.iminer.services.datacenter.Mashaler.EntitySearchRequest parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
-    }
-    public static org.iminer.services.datacenter.Mashaler.EntitySearchRequest parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
-    }
-    public static org.iminer.services.datacenter.Mashaler.EntitySearchRequest parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
-    }
-    public static org.iminer.services.datacenter.Mashaler.EntitySearchRequest parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
-    }
-    public static org.iminer.services.datacenter.Mashaler.EntitySearchRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
-    }
-    public static org.iminer.services.datacenter.Mashaler.EntitySearchRequest parseFrom(
+    private EntitySearchRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
-    }
-    
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.iminer.services.datacenter.Mashaler.EntitySearchRequest prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-    
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.iminer.services.datacenter.Mashaler.EntitySearchRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntitySearchRequest_descriptor;
-      }
-      
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntitySearchRequest_fieldAccessorTable;
-      }
-      
-      // Construct using org.iminer.services.datacenter.Mashaler.EntitySearchRequest.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-      
-      private Builder(BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-      
-      public Builder clear() {
-        super.clear();
-        query_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
-        offset_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        count_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        return this;
-      }
-      
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-      
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return org.iminer.services.datacenter.Mashaler.EntitySearchRequest.getDescriptor();
-      }
-      
-      public org.iminer.services.datacenter.Mashaler.EntitySearchRequest getDefaultInstanceForType() {
-        return org.iminer.services.datacenter.Mashaler.EntitySearchRequest.getDefaultInstance();
-      }
-      
-      public org.iminer.services.datacenter.Mashaler.EntitySearchRequest build() {
-        org.iminer.services.datacenter.Mashaler.EntitySearchRequest result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-      
-      private org.iminer.services.datacenter.Mashaler.EntitySearchRequest buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        org.iminer.services.datacenter.Mashaler.EntitySearchRequest result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
-      public org.iminer.services.datacenter.Mashaler.EntitySearchRequest buildPartial() {
-        org.iminer.services.datacenter.Mashaler.EntitySearchRequest result = new org.iminer.services.datacenter.Mashaler.EntitySearchRequest(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.query_ = query_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.offset_ = offset_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.count_ = count_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-      
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.iminer.services.datacenter.Mashaler.EntitySearchRequest) {
-          return mergeFrom((org.iminer.services.datacenter.Mashaler.EntitySearchRequest)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-      
-      public Builder mergeFrom(org.iminer.services.datacenter.Mashaler.EntitySearchRequest other) {
-        if (other == org.iminer.services.datacenter.Mashaler.EntitySearchRequest.getDefaultInstance()) return this;
-        if (other.hasQuery()) {
-          setQuery(other.getQuery());
-        }
-        if (other.hasOffset()) {
-          setOffset(other.getOffset());
-        }
-        if (other.hasCount()) {
-          setCount(other.getCount());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-      
-      public final boolean isInitialized() {
-        if (!hasQuery()) {
-          
-          return false;
-        }
-        return true;
-      }
-      
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
+              done = true;
+              break;
             default: {
               if (!parseUnknownField(input, unknownFields,
                                      extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
+                done = true;
               }
               break;
             }
@@ -412,26 +114,433 @@ public final class Mashaler {
             }
           }
         }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
       }
-      
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntitySearchRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntitySearchRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.iminer.services.datacenter.Mashaler.EntitySearchRequest.class, org.iminer.services.datacenter.Mashaler.EntitySearchRequest.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<EntitySearchRequest> PARSER =
+        new com.google.protobuf.AbstractParser<EntitySearchRequest>() {
+      public EntitySearchRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new EntitySearchRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<EntitySearchRequest> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required string query = 1;
+    public static final int QUERY_FIELD_NUMBER = 1;
+    private java.lang.Object query_;
+    /**
+     * <code>required string query = 1;</code>
+     */
+    public boolean hasQuery() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string query = 1;</code>
+     */
+    public java.lang.String getQuery() {
+      java.lang.Object ref = query_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          query_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string query = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getQueryBytes() {
+      java.lang.Object ref = query_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        query_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional int32 offset = 2;
+    public static final int OFFSET_FIELD_NUMBER = 2;
+    private int offset_;
+    /**
+     * <code>optional int32 offset = 2;</code>
+     */
+    public boolean hasOffset() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional int32 offset = 2;</code>
+     */
+    public int getOffset() {
+      return offset_;
+    }
+
+    // optional int32 count = 3;
+    public static final int COUNT_FIELD_NUMBER = 3;
+    private int count_;
+    /**
+     * <code>optional int32 count = 3;</code>
+     */
+    public boolean hasCount() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional int32 count = 3;</code>
+     */
+    public int getCount() {
+      return count_;
+    }
+
+    private void initFields() {
+      query_ = "";
+      offset_ = 0;
+      count_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasQuery()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getQueryBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, offset_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, count_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getQueryBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, offset_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, count_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static org.iminer.services.datacenter.Mashaler.EntitySearchRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.iminer.services.datacenter.Mashaler.EntitySearchRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.iminer.services.datacenter.Mashaler.EntitySearchRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.iminer.services.datacenter.Mashaler.EntitySearchRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.iminer.services.datacenter.Mashaler.EntitySearchRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static org.iminer.services.datacenter.Mashaler.EntitySearchRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static org.iminer.services.datacenter.Mashaler.EntitySearchRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static org.iminer.services.datacenter.Mashaler.EntitySearchRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static org.iminer.services.datacenter.Mashaler.EntitySearchRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static org.iminer.services.datacenter.Mashaler.EntitySearchRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(org.iminer.services.datacenter.Mashaler.EntitySearchRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code aminer.EntitySearchRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements org.iminer.services.datacenter.Mashaler.EntitySearchRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntitySearchRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntitySearchRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.iminer.services.datacenter.Mashaler.EntitySearchRequest.class, org.iminer.services.datacenter.Mashaler.EntitySearchRequest.Builder.class);
+      }
+
+      // Construct using org.iminer.services.datacenter.Mashaler.EntitySearchRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        query_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        offset_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        count_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntitySearchRequest_descriptor;
+      }
+
+      public org.iminer.services.datacenter.Mashaler.EntitySearchRequest getDefaultInstanceForType() {
+        return org.iminer.services.datacenter.Mashaler.EntitySearchRequest.getDefaultInstance();
+      }
+
+      public org.iminer.services.datacenter.Mashaler.EntitySearchRequest build() {
+        org.iminer.services.datacenter.Mashaler.EntitySearchRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.iminer.services.datacenter.Mashaler.EntitySearchRequest buildPartial() {
+        org.iminer.services.datacenter.Mashaler.EntitySearchRequest result = new org.iminer.services.datacenter.Mashaler.EntitySearchRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.query_ = query_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.offset_ = offset_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.count_ = count_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.iminer.services.datacenter.Mashaler.EntitySearchRequest) {
+          return mergeFrom((org.iminer.services.datacenter.Mashaler.EntitySearchRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.iminer.services.datacenter.Mashaler.EntitySearchRequest other) {
+        if (other == org.iminer.services.datacenter.Mashaler.EntitySearchRequest.getDefaultInstance()) return this;
+        if (other.hasQuery()) {
+          bitField0_ |= 0x00000001;
+          query_ = other.query_;
+          onChanged();
+        }
+        if (other.hasOffset()) {
+          setOffset(other.getOffset());
+        }
+        if (other.hasCount()) {
+          setCount(other.getCount());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasQuery()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.iminer.services.datacenter.Mashaler.EntitySearchRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.iminer.services.datacenter.Mashaler.EntitySearchRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
-      
+
       // required string query = 1;
       private java.lang.Object query_ = "";
+      /**
+       * <code>required string query = 1;</code>
+       */
       public boolean hasQuery() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      public String getQuery() {
+      /**
+       * <code>required string query = 1;</code>
+       */
+      public java.lang.String getQuery() {
         java.lang.Object ref = query_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           query_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setQuery(String value) {
+      /**
+       * <code>required string query = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getQueryBytes() {
+        java.lang.Object ref = query_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          query_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string query = 1;</code>
+       */
+      public Builder setQuery(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -440,133 +549,272 @@ public final class Mashaler {
         onChanged();
         return this;
       }
+      /**
+       * <code>required string query = 1;</code>
+       */
       public Builder clearQuery() {
         bitField0_ = (bitField0_ & ~0x00000001);
         query_ = getDefaultInstance().getQuery();
         onChanged();
         return this;
       }
-      void setQuery(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
+      /**
+       * <code>required string query = 1;</code>
+       */
+      public Builder setQueryBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         query_ = value;
         onChanged();
+        return this;
       }
-      
+
       // optional int32 offset = 2;
       private int offset_ ;
+      /**
+       * <code>optional int32 offset = 2;</code>
+       */
       public boolean hasOffset() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
+      /**
+       * <code>optional int32 offset = 2;</code>
+       */
       public int getOffset() {
         return offset_;
       }
+      /**
+       * <code>optional int32 offset = 2;</code>
+       */
       public Builder setOffset(int value) {
         bitField0_ |= 0x00000002;
         offset_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>optional int32 offset = 2;</code>
+       */
       public Builder clearOffset() {
         bitField0_ = (bitField0_ & ~0x00000002);
         offset_ = 0;
         onChanged();
         return this;
       }
-      
+
       // optional int32 count = 3;
       private int count_ ;
+      /**
+       * <code>optional int32 count = 3;</code>
+       */
       public boolean hasCount() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
+      /**
+       * <code>optional int32 count = 3;</code>
+       */
       public int getCount() {
         return count_;
       }
+      /**
+       * <code>optional int32 count = 3;</code>
+       */
       public Builder setCount(int value) {
         bitField0_ |= 0x00000004;
         count_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>optional int32 count = 3;</code>
+       */
       public Builder clearCount() {
         bitField0_ = (bitField0_ & ~0x00000004);
         count_ = 0;
         onChanged();
         return this;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:aminer.EntitySearchRequest)
     }
-    
+
     static {
       defaultInstance = new EntitySearchRequest(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:aminer.EntitySearchRequest)
   }
-  
+
   public interface EntityDetailRequestOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // repeated int32 id = 1;
+    /**
+     * <code>repeated int32 id = 1;</code>
+     */
     java.util.List<java.lang.Integer> getIdList();
+    /**
+     * <code>repeated int32 id = 1;</code>
+     */
     int getIdCount();
+    /**
+     * <code>repeated int32 id = 1;</code>
+     */
     int getId(int index);
   }
+  /**
+   * Protobuf type {@code aminer.EntityDetailRequest}
+   */
   public static final class EntityDetailRequest extends
       com.google.protobuf.GeneratedMessage
       implements EntityDetailRequestOrBuilder {
     // Use EntityDetailRequest.newBuilder() to construct.
-    private EntityDetailRequest(Builder builder) {
+    private EntityDetailRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private EntityDetailRequest(boolean noInit) {}
-    
+    private EntityDetailRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final EntityDetailRequest defaultInstance;
     public static EntityDetailRequest getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public EntityDetailRequest getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private EntityDetailRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                id_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              id_.add(input.readInt32());
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001) && input.getBytesUntilLimit() > 0) {
+                id_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                id_.add(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          id_ = java.util.Collections.unmodifiableList(id_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntityDetailRequest_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntityDetailRequest_fieldAccessorTable;
+      return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntityDetailRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.iminer.services.datacenter.Mashaler.EntityDetailRequest.class, org.iminer.services.datacenter.Mashaler.EntityDetailRequest.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<EntityDetailRequest> PARSER =
+        new com.google.protobuf.AbstractParser<EntityDetailRequest>() {
+      public EntityDetailRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new EntityDetailRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<EntityDetailRequest> getParserForType() {
+      return PARSER;
+    }
+
     // repeated int32 id = 1;
     public static final int ID_FIELD_NUMBER = 1;
     private java.util.List<java.lang.Integer> id_;
+    /**
+     * <code>repeated int32 id = 1;</code>
+     */
     public java.util.List<java.lang.Integer>
         getIdList() {
       return id_;
     }
+    /**
+     * <code>repeated int32 id = 1;</code>
+     */
     public int getIdCount() {
       return id_.size();
     }
+    /**
+     * <code>repeated int32 id = 1;</code>
+     */
     public int getId(int index) {
       return id_.get(index);
     }
-    
+
     private void initFields() {
-      id_ = java.util.Collections.emptyList();;
+      id_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -575,12 +823,12 @@ public final class Mashaler {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       {
         int dataSize = 0;
@@ -595,94 +843,83 @@ public final class Mashaler {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static org.iminer.services.datacenter.Mashaler.EntityDetailRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.iminer.services.datacenter.Mashaler.EntityDetailRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.EntityDetailRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.iminer.services.datacenter.Mashaler.EntityDetailRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.EntityDetailRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.iminer.services.datacenter.Mashaler.EntityDetailRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.EntityDetailRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static org.iminer.services.datacenter.Mashaler.EntityDetailRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.EntityDetailRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.iminer.services.datacenter.Mashaler.EntityDetailRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(org.iminer.services.datacenter.Mashaler.EntityDetailRequest prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code aminer.EntityDetailRequest}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements org.iminer.services.datacenter.Mashaler.EntityDetailRequestOrBuilder {
@@ -690,18 +927,21 @@ public final class Mashaler {
           getDescriptor() {
         return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntityDetailRequest_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntityDetailRequest_fieldAccessorTable;
+        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntityDetailRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.iminer.services.datacenter.Mashaler.EntityDetailRequest.class, org.iminer.services.datacenter.Mashaler.EntityDetailRequest.Builder.class);
       }
-      
+
       // Construct using org.iminer.services.datacenter.Mashaler.EntityDetailRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -712,27 +952,27 @@ public final class Mashaler {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
-        id_ = java.util.Collections.emptyList();;
+        id_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.iminer.services.datacenter.Mashaler.EntityDetailRequest.getDescriptor();
+        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntityDetailRequest_descriptor;
       }
-      
+
       public org.iminer.services.datacenter.Mashaler.EntityDetailRequest getDefaultInstanceForType() {
         return org.iminer.services.datacenter.Mashaler.EntityDetailRequest.getDefaultInstance();
       }
-      
+
       public org.iminer.services.datacenter.Mashaler.EntityDetailRequest build() {
         org.iminer.services.datacenter.Mashaler.EntityDetailRequest result = buildPartial();
         if (!result.isInitialized()) {
@@ -740,17 +980,7 @@ public final class Mashaler {
         }
         return result;
       }
-      
-      private org.iminer.services.datacenter.Mashaler.EntityDetailRequest buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        org.iminer.services.datacenter.Mashaler.EntityDetailRequest result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public org.iminer.services.datacenter.Mashaler.EntityDetailRequest buildPartial() {
         org.iminer.services.datacenter.Mashaler.EntityDetailRequest result = new org.iminer.services.datacenter.Mashaler.EntityDetailRequest(this);
         int from_bitField0_ = bitField0_;
@@ -762,7 +992,7 @@ public final class Mashaler {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.iminer.services.datacenter.Mashaler.EntityDetailRequest) {
           return mergeFrom((org.iminer.services.datacenter.Mashaler.EntityDetailRequest)other);
@@ -771,7 +1001,7 @@ public final class Mashaler {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(org.iminer.services.datacenter.Mashaler.EntityDetailRequest other) {
         if (other == org.iminer.services.datacenter.Mashaler.EntityDetailRequest.getDefaultInstance()) return this;
         if (!other.id_.isEmpty()) {
@@ -787,72 +1017,60 @@ public final class Mashaler {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 8: {
-              ensureIdIsMutable();
-              id_.add(input.readInt32());
-              break;
-            }
-            case 10: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              while (input.getBytesUntilLimit() > 0) {
-                addId(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
+        org.iminer.services.datacenter.Mashaler.EntityDetailRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.iminer.services.datacenter.Mashaler.EntityDetailRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // repeated int32 id = 1;
-      private java.util.List<java.lang.Integer> id_ = java.util.Collections.emptyList();;
+      private java.util.List<java.lang.Integer> id_ = java.util.Collections.emptyList();
       private void ensureIdIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
           id_ = new java.util.ArrayList<java.lang.Integer>(id_);
           bitField0_ |= 0x00000001;
          }
       }
+      /**
+       * <code>repeated int32 id = 1;</code>
+       */
       public java.util.List<java.lang.Integer>
           getIdList() {
         return java.util.Collections.unmodifiableList(id_);
       }
+      /**
+       * <code>repeated int32 id = 1;</code>
+       */
       public int getIdCount() {
         return id_.size();
       }
+      /**
+       * <code>repeated int32 id = 1;</code>
+       */
       public int getId(int index) {
         return id_.get(index);
       }
+      /**
+       * <code>repeated int32 id = 1;</code>
+       */
       public Builder setId(
           int index, int value) {
         ensureIdIsMutable();
@@ -860,12 +1078,18 @@ public final class Mashaler {
         onChanged();
         return this;
       }
+      /**
+       * <code>repeated int32 id = 1;</code>
+       */
       public Builder addId(int value) {
         ensureIdIsMutable();
         id_.add(value);
         onChanged();
         return this;
       }
+      /**
+       * <code>repeated int32 id = 1;</code>
+       */
       public Builder addAllId(
           java.lang.Iterable<? extends java.lang.Integer> values) {
         ensureIdIsMutable();
@@ -873,106 +1097,215 @@ public final class Mashaler {
         onChanged();
         return this;
       }
+      /**
+       * <code>repeated int32 id = 1;</code>
+       */
       public Builder clearId() {
-        id_ = java.util.Collections.emptyList();;
+        id_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:aminer.EntityDetailRequest)
     }
-    
+
     static {
       defaultInstance = new EntityDetailRequest(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:aminer.EntityDetailRequest)
   }
-  
+
   public interface StatOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // required string type = 1;
+    /**
+     * <code>required string type = 1;</code>
+     */
     boolean hasType();
-    String getType();
-    
+    /**
+     * <code>required string type = 1;</code>
+     */
+    java.lang.String getType();
+    /**
+     * <code>required string type = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getTypeBytes();
+
     // required int32 value = 2;
+    /**
+     * <code>required int32 value = 2;</code>
+     */
     boolean hasValue();
+    /**
+     * <code>required int32 value = 2;</code>
+     */
     int getValue();
   }
+  /**
+   * Protobuf type {@code aminer.Stat}
+   */
   public static final class Stat extends
       com.google.protobuf.GeneratedMessage
       implements StatOrBuilder {
     // Use Stat.newBuilder() to construct.
-    private Stat(Builder builder) {
+    private Stat(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private Stat(boolean noInit) {}
-    
+    private Stat(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final Stat defaultInstance;
     public static Stat getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public Stat getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Stat(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              type_ = input.readBytes();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              value_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.iminer.services.datacenter.Mashaler.internal_static_aminer_Stat_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.iminer.services.datacenter.Mashaler.internal_static_aminer_Stat_fieldAccessorTable;
+      return org.iminer.services.datacenter.Mashaler.internal_static_aminer_Stat_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.iminer.services.datacenter.Mashaler.Stat.class, org.iminer.services.datacenter.Mashaler.Stat.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<Stat> PARSER =
+        new com.google.protobuf.AbstractParser<Stat>() {
+      public Stat parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Stat(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Stat> getParserForType() {
+      return PARSER;
+    }
+
     private int bitField0_;
     // required string type = 1;
     public static final int TYPE_FIELD_NUMBER = 1;
     private java.lang.Object type_;
+    /**
+     * <code>required string type = 1;</code>
+     */
     public boolean hasType() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    public String getType() {
+    /**
+     * <code>required string type = 1;</code>
+     */
+    public java.lang.String getType() {
       java.lang.Object ref = type_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           type_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getTypeBytes() {
+    /**
+     * <code>required string type = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTypeBytes() {
       java.lang.Object ref = type_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         type_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
     // required int32 value = 2;
     public static final int VALUE_FIELD_NUMBER = 2;
     private int value_;
+    /**
+     * <code>required int32 value = 2;</code>
+     */
     public boolean hasValue() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
+    /**
+     * <code>required int32 value = 2;</code>
+     */
     public int getValue() {
       return value_;
     }
-    
+
     private void initFields() {
       type_ = "";
       value_ = 0;
@@ -981,7 +1314,7 @@ public final class Mashaler {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       if (!hasType()) {
         memoizedIsInitialized = 0;
         return false;
@@ -993,7 +1326,7 @@ public final class Mashaler {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -1005,12 +1338,12 @@ public final class Mashaler {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -1024,94 +1357,83 @@ public final class Mashaler {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static org.iminer.services.datacenter.Mashaler.Stat parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.iminer.services.datacenter.Mashaler.Stat parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.Stat parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.iminer.services.datacenter.Mashaler.Stat parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.Stat parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.iminer.services.datacenter.Mashaler.Stat parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.Stat parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static org.iminer.services.datacenter.Mashaler.Stat parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.Stat parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.iminer.services.datacenter.Mashaler.Stat parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(org.iminer.services.datacenter.Mashaler.Stat prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code aminer.Stat}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements org.iminer.services.datacenter.Mashaler.StatOrBuilder {
@@ -1119,18 +1441,21 @@ public final class Mashaler {
           getDescriptor() {
         return org.iminer.services.datacenter.Mashaler.internal_static_aminer_Stat_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_Stat_fieldAccessorTable;
+        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_Stat_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.iminer.services.datacenter.Mashaler.Stat.class, org.iminer.services.datacenter.Mashaler.Stat.Builder.class);
       }
-      
+
       // Construct using org.iminer.services.datacenter.Mashaler.Stat.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1141,7 +1466,7 @@ public final class Mashaler {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         type_ = "";
@@ -1150,20 +1475,20 @@ public final class Mashaler {
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.iminer.services.datacenter.Mashaler.Stat.getDescriptor();
+        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_Stat_descriptor;
       }
-      
+
       public org.iminer.services.datacenter.Mashaler.Stat getDefaultInstanceForType() {
         return org.iminer.services.datacenter.Mashaler.Stat.getDefaultInstance();
       }
-      
+
       public org.iminer.services.datacenter.Mashaler.Stat build() {
         org.iminer.services.datacenter.Mashaler.Stat result = buildPartial();
         if (!result.isInitialized()) {
@@ -1171,17 +1496,7 @@ public final class Mashaler {
         }
         return result;
       }
-      
-      private org.iminer.services.datacenter.Mashaler.Stat buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        org.iminer.services.datacenter.Mashaler.Stat result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public org.iminer.services.datacenter.Mashaler.Stat buildPartial() {
         org.iminer.services.datacenter.Mashaler.Stat result = new org.iminer.services.datacenter.Mashaler.Stat(this);
         int from_bitField0_ = bitField0_;
@@ -1198,7 +1513,7 @@ public final class Mashaler {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.iminer.services.datacenter.Mashaler.Stat) {
           return mergeFrom((org.iminer.services.datacenter.Mashaler.Stat)other);
@@ -1207,11 +1522,13 @@ public final class Mashaler {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(org.iminer.services.datacenter.Mashaler.Stat other) {
         if (other == org.iminer.services.datacenter.Mashaler.Stat.getDefaultInstance()) return this;
         if (other.hasType()) {
-          setType(other.getType());
+          bitField0_ |= 0x00000001;
+          type_ = other.type_;
+          onChanged();
         }
         if (other.hasValue()) {
           setValue(other.getValue());
@@ -1219,7 +1536,7 @@ public final class Mashaler {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (!hasType()) {
           
@@ -1231,27 +1548,224 @@ public final class Mashaler {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
+        org.iminer.services.datacenter.Mashaler.Stat parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.iminer.services.datacenter.Mashaler.Stat) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required string type = 1;
+      private java.lang.Object type_ = "";
+      /**
+       * <code>required string type = 1;</code>
+       */
+      public boolean hasType() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string type = 1;</code>
+       */
+      public java.lang.String getType() {
+        java.lang.Object ref = type_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          type_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string type = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTypeBytes() {
+        java.lang.Object ref = type_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          type_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string type = 1;</code>
+       */
+      public Builder setType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string type = 1;</code>
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        type_ = getDefaultInstance().getType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string type = 1;</code>
+       */
+      public Builder setTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        type_ = value;
+        onChanged();
+        return this;
+      }
+
+      // required int32 value = 2;
+      private int value_ ;
+      /**
+       * <code>required int32 value = 2;</code>
+       */
+      public boolean hasValue() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 value = 2;</code>
+       */
+      public int getValue() {
+        return value_;
+      }
+      /**
+       * <code>required int32 value = 2;</code>
+       */
+      public Builder setValue(int value) {
+        bitField0_ |= 0x00000002;
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 value = 2;</code>
+       */
+      public Builder clearValue() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        value_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:aminer.Stat)
+    }
+
+    static {
+      defaultInstance = new Stat(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:aminer.Stat)
+  }
+
+  public interface RelatedEntityOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required string type = 1;
+    /**
+     * <code>required string type = 1;</code>
+     */
+    boolean hasType();
+    /**
+     * <code>required string type = 1;</code>
+     */
+    java.lang.String getType();
+    /**
+     * <code>required string type = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getTypeBytes();
+
+    // repeated int32 id = 2;
+    /**
+     * <code>repeated int32 id = 2;</code>
+     */
+    java.util.List<java.lang.Integer> getIdList();
+    /**
+     * <code>repeated int32 id = 2;</code>
+     */
+    int getIdCount();
+    /**
+     * <code>repeated int32 id = 2;</code>
+     */
+    int getId(int index);
+  }
+  /**
+   * Protobuf type {@code aminer.RelatedEntity}
+   */
+  public static final class RelatedEntity extends
+      com.google.protobuf.GeneratedMessage
+      implements RelatedEntityOrBuilder {
+    // Use RelatedEntity.newBuilder() to construct.
+    private RelatedEntity(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private RelatedEntity(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final RelatedEntity defaultInstance;
+    public static RelatedEntity getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public RelatedEntity getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RelatedEntity(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
+              done = true;
+              break;
             default: {
               if (!parseUnknownField(input, unknownFields,
                                      extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
+                done = true;
               }
               break;
             }
@@ -1261,180 +1775,144 @@ public final class Mashaler {
               break;
             }
             case 16: {
-              bitField0_ |= 0x00000002;
-              value_ = input.readInt32();
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                id_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              id_.add(input.readInt32());
+              break;
+            }
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002) && input.getBytesUntilLimit() > 0) {
+                id_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                id_.add(input.readInt32());
+              }
+              input.popLimit(limit);
               break;
             }
           }
         }
-      }
-      
-      private int bitField0_;
-      
-      // required string type = 1;
-      private java.lang.Object type_ = "";
-      public boolean hasType() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      public String getType() {
-        java.lang.Object ref = type_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          type_ = s;
-          return s;
-        } else {
-          return (String) ref;
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          id_ = java.util.Collections.unmodifiableList(id_);
         }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
       }
-      public Builder setType(String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        type_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearType() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        type_ = getDefaultInstance().getType();
-        onChanged();
-        return this;
-      }
-      void setType(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
-        type_ = value;
-        onChanged();
-      }
-      
-      // required int32 value = 2;
-      private int value_ ;
-      public boolean hasValue() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      public int getValue() {
-        return value_;
-      }
-      public Builder setValue(int value) {
-        bitField0_ |= 0x00000002;
-        value_ = value;
-        onChanged();
-        return this;
-      }
-      public Builder clearValue() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        value_ = 0;
-        onChanged();
-        return this;
-      }
-      
-      // @@protoc_insertion_point(builder_scope:aminer.Stat)
     }
-    
-    static {
-      defaultInstance = new Stat(true);
-      defaultInstance.initFields();
-    }
-    
-    // @@protoc_insertion_point(class_scope:aminer.Stat)
-  }
-  
-  public interface RelatedEntityOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-    
-    // required string type = 1;
-    boolean hasType();
-    String getType();
-    
-    // repeated int32 id = 2;
-    java.util.List<java.lang.Integer> getIdList();
-    int getIdCount();
-    int getId(int index);
-  }
-  public static final class RelatedEntity extends
-      com.google.protobuf.GeneratedMessage
-      implements RelatedEntityOrBuilder {
-    // Use RelatedEntity.newBuilder() to construct.
-    private RelatedEntity(Builder builder) {
-      super(builder);
-    }
-    private RelatedEntity(boolean noInit) {}
-    
-    private static final RelatedEntity defaultInstance;
-    public static RelatedEntity getDefaultInstance() {
-      return defaultInstance;
-    }
-    
-    public RelatedEntity getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-    
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.iminer.services.datacenter.Mashaler.internal_static_aminer_RelatedEntity_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.iminer.services.datacenter.Mashaler.internal_static_aminer_RelatedEntity_fieldAccessorTable;
+      return org.iminer.services.datacenter.Mashaler.internal_static_aminer_RelatedEntity_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.iminer.services.datacenter.Mashaler.RelatedEntity.class, org.iminer.services.datacenter.Mashaler.RelatedEntity.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<RelatedEntity> PARSER =
+        new com.google.protobuf.AbstractParser<RelatedEntity>() {
+      public RelatedEntity parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RelatedEntity(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RelatedEntity> getParserForType() {
+      return PARSER;
+    }
+
     private int bitField0_;
     // required string type = 1;
     public static final int TYPE_FIELD_NUMBER = 1;
     private java.lang.Object type_;
+    /**
+     * <code>required string type = 1;</code>
+     */
     public boolean hasType() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    public String getType() {
+    /**
+     * <code>required string type = 1;</code>
+     */
+    public java.lang.String getType() {
       java.lang.Object ref = type_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           type_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getTypeBytes() {
+    /**
+     * <code>required string type = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTypeBytes() {
       java.lang.Object ref = type_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         type_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
     // repeated int32 id = 2;
     public static final int ID_FIELD_NUMBER = 2;
     private java.util.List<java.lang.Integer> id_;
+    /**
+     * <code>repeated int32 id = 2;</code>
+     */
     public java.util.List<java.lang.Integer>
         getIdList() {
       return id_;
     }
+    /**
+     * <code>repeated int32 id = 2;</code>
+     */
     public int getIdCount() {
       return id_.size();
     }
+    /**
+     * <code>repeated int32 id = 2;</code>
+     */
     public int getId(int index) {
       return id_.get(index);
     }
-    
+
     private void initFields() {
       type_ = "";
-      id_ = java.util.Collections.emptyList();;
+      id_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       if (!hasType()) {
         memoizedIsInitialized = 0;
         return false;
@@ -1442,7 +1920,7 @@ public final class Mashaler {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -1454,12 +1932,12 @@ public final class Mashaler {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -1478,94 +1956,83 @@ public final class Mashaler {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static org.iminer.services.datacenter.Mashaler.RelatedEntity parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.iminer.services.datacenter.Mashaler.RelatedEntity parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.RelatedEntity parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.iminer.services.datacenter.Mashaler.RelatedEntity parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.RelatedEntity parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.iminer.services.datacenter.Mashaler.RelatedEntity parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.RelatedEntity parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static org.iminer.services.datacenter.Mashaler.RelatedEntity parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.RelatedEntity parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.iminer.services.datacenter.Mashaler.RelatedEntity parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(org.iminer.services.datacenter.Mashaler.RelatedEntity prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code aminer.RelatedEntity}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements org.iminer.services.datacenter.Mashaler.RelatedEntityOrBuilder {
@@ -1573,18 +2040,21 @@ public final class Mashaler {
           getDescriptor() {
         return org.iminer.services.datacenter.Mashaler.internal_static_aminer_RelatedEntity_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_RelatedEntity_fieldAccessorTable;
+        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_RelatedEntity_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.iminer.services.datacenter.Mashaler.RelatedEntity.class, org.iminer.services.datacenter.Mashaler.RelatedEntity.Builder.class);
       }
-      
+
       // Construct using org.iminer.services.datacenter.Mashaler.RelatedEntity.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1595,29 +2065,29 @@ public final class Mashaler {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         type_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        id_ = java.util.Collections.emptyList();;
+        id_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.iminer.services.datacenter.Mashaler.RelatedEntity.getDescriptor();
+        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_RelatedEntity_descriptor;
       }
-      
+
       public org.iminer.services.datacenter.Mashaler.RelatedEntity getDefaultInstanceForType() {
         return org.iminer.services.datacenter.Mashaler.RelatedEntity.getDefaultInstance();
       }
-      
+
       public org.iminer.services.datacenter.Mashaler.RelatedEntity build() {
         org.iminer.services.datacenter.Mashaler.RelatedEntity result = buildPartial();
         if (!result.isInitialized()) {
@@ -1625,17 +2095,7 @@ public final class Mashaler {
         }
         return result;
       }
-      
-      private org.iminer.services.datacenter.Mashaler.RelatedEntity buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        org.iminer.services.datacenter.Mashaler.RelatedEntity result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public org.iminer.services.datacenter.Mashaler.RelatedEntity buildPartial() {
         org.iminer.services.datacenter.Mashaler.RelatedEntity result = new org.iminer.services.datacenter.Mashaler.RelatedEntity(this);
         int from_bitField0_ = bitField0_;
@@ -1653,7 +2113,7 @@ public final class Mashaler {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.iminer.services.datacenter.Mashaler.RelatedEntity) {
           return mergeFrom((org.iminer.services.datacenter.Mashaler.RelatedEntity)other);
@@ -1662,11 +2122,13 @@ public final class Mashaler {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(org.iminer.services.datacenter.Mashaler.RelatedEntity other) {
         if (other == org.iminer.services.datacenter.Mashaler.RelatedEntity.getDefaultInstance()) return this;
         if (other.hasType()) {
-          setType(other.getType());
+          bitField0_ |= 0x00000001;
+          type_ = other.type_;
+          onChanged();
         }
         if (!other.id_.isEmpty()) {
           if (id_.isEmpty()) {
@@ -1681,7 +2143,7 @@ public final class Mashaler {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (!hasType()) {
           
@@ -1689,71 +2151,69 @@ public final class Mashaler {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              type_ = input.readBytes();
-              break;
-            }
-            case 16: {
-              ensureIdIsMutable();
-              id_.add(input.readInt32());
-              break;
-            }
-            case 18: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              while (input.getBytesUntilLimit() > 0) {
-                addId(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
+        org.iminer.services.datacenter.Mashaler.RelatedEntity parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.iminer.services.datacenter.Mashaler.RelatedEntity) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // required string type = 1;
       private java.lang.Object type_ = "";
+      /**
+       * <code>required string type = 1;</code>
+       */
       public boolean hasType() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      public String getType() {
+      /**
+       * <code>required string type = 1;</code>
+       */
+      public java.lang.String getType() {
         java.lang.Object ref = type_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           type_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setType(String value) {
+      /**
+       * <code>required string type = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTypeBytes() {
+        java.lang.Object ref = type_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          type_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string type = 1;</code>
+       */
+      public Builder setType(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1762,36 +2222,59 @@ public final class Mashaler {
         onChanged();
         return this;
       }
+      /**
+       * <code>required string type = 1;</code>
+       */
       public Builder clearType() {
         bitField0_ = (bitField0_ & ~0x00000001);
         type_ = getDefaultInstance().getType();
         onChanged();
         return this;
       }
-      void setType(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
+      /**
+       * <code>required string type = 1;</code>
+       */
+      public Builder setTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         type_ = value;
         onChanged();
+        return this;
       }
-      
+
       // repeated int32 id = 2;
-      private java.util.List<java.lang.Integer> id_ = java.util.Collections.emptyList();;
+      private java.util.List<java.lang.Integer> id_ = java.util.Collections.emptyList();
       private void ensureIdIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
           id_ = new java.util.ArrayList<java.lang.Integer>(id_);
           bitField0_ |= 0x00000002;
          }
       }
+      /**
+       * <code>repeated int32 id = 2;</code>
+       */
       public java.util.List<java.lang.Integer>
           getIdList() {
         return java.util.Collections.unmodifiableList(id_);
       }
+      /**
+       * <code>repeated int32 id = 2;</code>
+       */
       public int getIdCount() {
         return id_.size();
       }
+      /**
+       * <code>repeated int32 id = 2;</code>
+       */
       public int getId(int index) {
         return id_.get(index);
       }
+      /**
+       * <code>repeated int32 id = 2;</code>
+       */
       public Builder setId(
           int index, int value) {
         ensureIdIsMutable();
@@ -1799,12 +2282,18 @@ public final class Mashaler {
         onChanged();
         return this;
       }
+      /**
+       * <code>repeated int32 id = 2;</code>
+       */
       public Builder addId(int value) {
         ensureIdIsMutable();
         id_.add(value);
         onChanged();
         return this;
       }
+      /**
+       * <code>repeated int32 id = 2;</code>
+       */
       public Builder addAllId(
           java.lang.Iterable<? extends java.lang.Integer> values) {
         ensureIdIsMutable();
@@ -1812,326 +2301,642 @@ public final class Mashaler {
         onChanged();
         return this;
       }
+      /**
+       * <code>repeated int32 id = 2;</code>
+       */
       public Builder clearId() {
-        id_ = java.util.Collections.emptyList();;
+        id_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:aminer.RelatedEntity)
     }
-    
+
     static {
       defaultInstance = new RelatedEntity(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:aminer.RelatedEntity)
   }
-  
+
   public interface DetailedEntityOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // required string title = 1;
+    /**
+     * <code>required string title = 1;</code>
+     */
     boolean hasTitle();
-    String getTitle();
-    
+    /**
+     * <code>required string title = 1;</code>
+     */
+    java.lang.String getTitle();
+    /**
+     * <code>required string title = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getTitleBytes();
+
     // required int32 id = 2;
+    /**
+     * <code>required int32 id = 2;</code>
+     */
     boolean hasId();
+    /**
+     * <code>required int32 id = 2;</code>
+     */
     int getId();
-    
+
     // optional string url = 3;
+    /**
+     * <code>optional string url = 3;</code>
+     */
     boolean hasUrl();
-    String getUrl();
-    
+    /**
+     * <code>optional string url = 3;</code>
+     */
+    java.lang.String getUrl();
+    /**
+     * <code>optional string url = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getUrlBytes();
+
     // optional string description = 4;
+    /**
+     * <code>optional string description = 4;</code>
+     */
     boolean hasDescription();
-    String getDescription();
-    
+    /**
+     * <code>optional string description = 4;</code>
+     */
+    java.lang.String getDescription();
+    /**
+     * <code>optional string description = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getDescriptionBytes();
+
     // repeated .aminer.Stat stat = 5;
+    /**
+     * <code>repeated .aminer.Stat stat = 5;</code>
+     */
     java.util.List<org.iminer.services.datacenter.Mashaler.Stat> 
         getStatList();
+    /**
+     * <code>repeated .aminer.Stat stat = 5;</code>
+     */
     org.iminer.services.datacenter.Mashaler.Stat getStat(int index);
+    /**
+     * <code>repeated .aminer.Stat stat = 5;</code>
+     */
     int getStatCount();
+    /**
+     * <code>repeated .aminer.Stat stat = 5;</code>
+     */
     java.util.List<? extends org.iminer.services.datacenter.Mashaler.StatOrBuilder> 
         getStatOrBuilderList();
+    /**
+     * <code>repeated .aminer.Stat stat = 5;</code>
+     */
     org.iminer.services.datacenter.Mashaler.StatOrBuilder getStatOrBuilder(
         int index);
-    
+
     // optional string topics = 6;
+    /**
+     * <code>optional string topics = 6;</code>
+     */
     boolean hasTopics();
-    String getTopics();
-    
+    /**
+     * <code>optional string topics = 6;</code>
+     */
+    java.lang.String getTopics();
+    /**
+     * <code>optional string topics = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getTopicsBytes();
+
     // optional string imgurl = 7;
+    /**
+     * <code>optional string imgurl = 7;</code>
+     */
     boolean hasImgurl();
-    String getImgurl();
-    
+    /**
+     * <code>optional string imgurl = 7;</code>
+     */
+    java.lang.String getImgurl();
+    /**
+     * <code>optional string imgurl = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getImgurlBytes();
+
     // optional int32 original_id = 8;
+    /**
+     * <code>optional int32 original_id = 8;</code>
+     */
     boolean hasOriginalId();
+    /**
+     * <code>optional int32 original_id = 8;</code>
+     */
     int getOriginalId();
-    
+
     // repeated .aminer.RelatedEntity related_entity = 9;
+    /**
+     * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+     */
     java.util.List<org.iminer.services.datacenter.Mashaler.RelatedEntity> 
         getRelatedEntityList();
+    /**
+     * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+     */
     org.iminer.services.datacenter.Mashaler.RelatedEntity getRelatedEntity(int index);
+    /**
+     * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+     */
     int getRelatedEntityCount();
+    /**
+     * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+     */
     java.util.List<? extends org.iminer.services.datacenter.Mashaler.RelatedEntityOrBuilder> 
         getRelatedEntityOrBuilderList();
+    /**
+     * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+     */
     org.iminer.services.datacenter.Mashaler.RelatedEntityOrBuilder getRelatedEntityOrBuilder(
         int index);
   }
+  /**
+   * Protobuf type {@code aminer.DetailedEntity}
+   */
   public static final class DetailedEntity extends
       com.google.protobuf.GeneratedMessage
       implements DetailedEntityOrBuilder {
     // Use DetailedEntity.newBuilder() to construct.
-    private DetailedEntity(Builder builder) {
+    private DetailedEntity(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private DetailedEntity(boolean noInit) {}
-    
+    private DetailedEntity(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final DetailedEntity defaultInstance;
     public static DetailedEntity getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public DetailedEntity getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DetailedEntity(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              title_ = input.readBytes();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              id_ = input.readInt32();
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              url_ = input.readBytes();
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000008;
+              description_ = input.readBytes();
+              break;
+            }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                stat_ = new java.util.ArrayList<org.iminer.services.datacenter.Mashaler.Stat>();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              stat_.add(input.readMessage(org.iminer.services.datacenter.Mashaler.Stat.PARSER, extensionRegistry));
+              break;
+            }
+            case 50: {
+              bitField0_ |= 0x00000010;
+              topics_ = input.readBytes();
+              break;
+            }
+            case 58: {
+              bitField0_ |= 0x00000020;
+              imgurl_ = input.readBytes();
+              break;
+            }
+            case 64: {
+              bitField0_ |= 0x00000040;
+              originalId_ = input.readInt32();
+              break;
+            }
+            case 74: {
+              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+                relatedEntity_ = new java.util.ArrayList<org.iminer.services.datacenter.Mashaler.RelatedEntity>();
+                mutable_bitField0_ |= 0x00000100;
+              }
+              relatedEntity_.add(input.readMessage(org.iminer.services.datacenter.Mashaler.RelatedEntity.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+          stat_ = java.util.Collections.unmodifiableList(stat_);
+        }
+        if (((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+          relatedEntity_ = java.util.Collections.unmodifiableList(relatedEntity_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.iminer.services.datacenter.Mashaler.internal_static_aminer_DetailedEntity_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.iminer.services.datacenter.Mashaler.internal_static_aminer_DetailedEntity_fieldAccessorTable;
+      return org.iminer.services.datacenter.Mashaler.internal_static_aminer_DetailedEntity_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.iminer.services.datacenter.Mashaler.DetailedEntity.class, org.iminer.services.datacenter.Mashaler.DetailedEntity.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<DetailedEntity> PARSER =
+        new com.google.protobuf.AbstractParser<DetailedEntity>() {
+      public DetailedEntity parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DetailedEntity(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DetailedEntity> getParserForType() {
+      return PARSER;
+    }
+
     private int bitField0_;
     // required string title = 1;
     public static final int TITLE_FIELD_NUMBER = 1;
     private java.lang.Object title_;
+    /**
+     * <code>required string title = 1;</code>
+     */
     public boolean hasTitle() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    public String getTitle() {
+    /**
+     * <code>required string title = 1;</code>
+     */
+    public java.lang.String getTitle() {
       java.lang.Object ref = title_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           title_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getTitleBytes() {
+    /**
+     * <code>required string title = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTitleBytes() {
       java.lang.Object ref = title_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         title_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
     // required int32 id = 2;
     public static final int ID_FIELD_NUMBER = 2;
     private int id_;
+    /**
+     * <code>required int32 id = 2;</code>
+     */
     public boolean hasId() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
+    /**
+     * <code>required int32 id = 2;</code>
+     */
     public int getId() {
       return id_;
     }
-    
+
     // optional string url = 3;
     public static final int URL_FIELD_NUMBER = 3;
     private java.lang.Object url_;
+    /**
+     * <code>optional string url = 3;</code>
+     */
     public boolean hasUrl() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
-    public String getUrl() {
+    /**
+     * <code>optional string url = 3;</code>
+     */
+    public java.lang.String getUrl() {
       java.lang.Object ref = url_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           url_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getUrlBytes() {
+    /**
+     * <code>optional string url = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUrlBytes() {
       java.lang.Object ref = url_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         url_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
     // optional string description = 4;
     public static final int DESCRIPTION_FIELD_NUMBER = 4;
     private java.lang.Object description_;
+    /**
+     * <code>optional string description = 4;</code>
+     */
     public boolean hasDescription() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
-    public String getDescription() {
+    /**
+     * <code>optional string description = 4;</code>
+     */
+    public java.lang.String getDescription() {
       java.lang.Object ref = description_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           description_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getDescriptionBytes() {
+    /**
+     * <code>optional string description = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDescriptionBytes() {
       java.lang.Object ref = description_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         description_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
     // repeated .aminer.Stat stat = 5;
     public static final int STAT_FIELD_NUMBER = 5;
     private java.util.List<org.iminer.services.datacenter.Mashaler.Stat> stat_;
+    /**
+     * <code>repeated .aminer.Stat stat = 5;</code>
+     */
     public java.util.List<org.iminer.services.datacenter.Mashaler.Stat> getStatList() {
       return stat_;
     }
+    /**
+     * <code>repeated .aminer.Stat stat = 5;</code>
+     */
     public java.util.List<? extends org.iminer.services.datacenter.Mashaler.StatOrBuilder> 
         getStatOrBuilderList() {
       return stat_;
     }
+    /**
+     * <code>repeated .aminer.Stat stat = 5;</code>
+     */
     public int getStatCount() {
       return stat_.size();
     }
+    /**
+     * <code>repeated .aminer.Stat stat = 5;</code>
+     */
     public org.iminer.services.datacenter.Mashaler.Stat getStat(int index) {
       return stat_.get(index);
     }
+    /**
+     * <code>repeated .aminer.Stat stat = 5;</code>
+     */
     public org.iminer.services.datacenter.Mashaler.StatOrBuilder getStatOrBuilder(
         int index) {
       return stat_.get(index);
     }
-    
+
     // optional string topics = 6;
     public static final int TOPICS_FIELD_NUMBER = 6;
     private java.lang.Object topics_;
+    /**
+     * <code>optional string topics = 6;</code>
+     */
     public boolean hasTopics() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
-    public String getTopics() {
+    /**
+     * <code>optional string topics = 6;</code>
+     */
+    public java.lang.String getTopics() {
       java.lang.Object ref = topics_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           topics_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getTopicsBytes() {
+    /**
+     * <code>optional string topics = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTopicsBytes() {
       java.lang.Object ref = topics_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         topics_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
     // optional string imgurl = 7;
     public static final int IMGURL_FIELD_NUMBER = 7;
     private java.lang.Object imgurl_;
+    /**
+     * <code>optional string imgurl = 7;</code>
+     */
     public boolean hasImgurl() {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
-    public String getImgurl() {
+    /**
+     * <code>optional string imgurl = 7;</code>
+     */
+    public java.lang.String getImgurl() {
       java.lang.Object ref = imgurl_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           imgurl_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getImgurlBytes() {
+    /**
+     * <code>optional string imgurl = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getImgurlBytes() {
       java.lang.Object ref = imgurl_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         imgurl_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
     // optional int32 original_id = 8;
     public static final int ORIGINAL_ID_FIELD_NUMBER = 8;
     private int originalId_;
+    /**
+     * <code>optional int32 original_id = 8;</code>
+     */
     public boolean hasOriginalId() {
       return ((bitField0_ & 0x00000040) == 0x00000040);
     }
+    /**
+     * <code>optional int32 original_id = 8;</code>
+     */
     public int getOriginalId() {
       return originalId_;
     }
-    
+
     // repeated .aminer.RelatedEntity related_entity = 9;
     public static final int RELATED_ENTITY_FIELD_NUMBER = 9;
     private java.util.List<org.iminer.services.datacenter.Mashaler.RelatedEntity> relatedEntity_;
+    /**
+     * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+     */
     public java.util.List<org.iminer.services.datacenter.Mashaler.RelatedEntity> getRelatedEntityList() {
       return relatedEntity_;
     }
+    /**
+     * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+     */
     public java.util.List<? extends org.iminer.services.datacenter.Mashaler.RelatedEntityOrBuilder> 
         getRelatedEntityOrBuilderList() {
       return relatedEntity_;
     }
+    /**
+     * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+     */
     public int getRelatedEntityCount() {
       return relatedEntity_.size();
     }
+    /**
+     * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+     */
     public org.iminer.services.datacenter.Mashaler.RelatedEntity getRelatedEntity(int index) {
       return relatedEntity_.get(index);
     }
+    /**
+     * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+     */
     public org.iminer.services.datacenter.Mashaler.RelatedEntityOrBuilder getRelatedEntityOrBuilder(
         int index) {
       return relatedEntity_.get(index);
     }
-    
+
     private void initFields() {
       title_ = "";
       id_ = 0;
@@ -2147,7 +2952,7 @@ public final class Mashaler {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       if (!hasTitle()) {
         memoizedIsInitialized = 0;
         return false;
@@ -2171,7 +2976,7 @@ public final class Mashaler {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -2204,12 +3009,12 @@ public final class Mashaler {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -2251,94 +3056,83 @@ public final class Mashaler {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static org.iminer.services.datacenter.Mashaler.DetailedEntity parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.iminer.services.datacenter.Mashaler.DetailedEntity parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.DetailedEntity parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.iminer.services.datacenter.Mashaler.DetailedEntity parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.DetailedEntity parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.iminer.services.datacenter.Mashaler.DetailedEntity parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.DetailedEntity parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static org.iminer.services.datacenter.Mashaler.DetailedEntity parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.DetailedEntity parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.iminer.services.datacenter.Mashaler.DetailedEntity parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(org.iminer.services.datacenter.Mashaler.DetailedEntity prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code aminer.DetailedEntity}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements org.iminer.services.datacenter.Mashaler.DetailedEntityOrBuilder {
@@ -2346,18 +3140,21 @@ public final class Mashaler {
           getDescriptor() {
         return org.iminer.services.datacenter.Mashaler.internal_static_aminer_DetailedEntity_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_DetailedEntity_fieldAccessorTable;
+        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_DetailedEntity_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.iminer.services.datacenter.Mashaler.DetailedEntity.class, org.iminer.services.datacenter.Mashaler.DetailedEntity.Builder.class);
       }
-      
+
       // Construct using org.iminer.services.datacenter.Mashaler.DetailedEntity.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -2370,7 +3167,7 @@ public final class Mashaler {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         title_ = "";
@@ -2401,20 +3198,20 @@ public final class Mashaler {
         }
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.iminer.services.datacenter.Mashaler.DetailedEntity.getDescriptor();
+        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_DetailedEntity_descriptor;
       }
-      
+
       public org.iminer.services.datacenter.Mashaler.DetailedEntity getDefaultInstanceForType() {
         return org.iminer.services.datacenter.Mashaler.DetailedEntity.getDefaultInstance();
       }
-      
+
       public org.iminer.services.datacenter.Mashaler.DetailedEntity build() {
         org.iminer.services.datacenter.Mashaler.DetailedEntity result = buildPartial();
         if (!result.isInitialized()) {
@@ -2422,17 +3219,7 @@ public final class Mashaler {
         }
         return result;
       }
-      
-      private org.iminer.services.datacenter.Mashaler.DetailedEntity buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        org.iminer.services.datacenter.Mashaler.DetailedEntity result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public org.iminer.services.datacenter.Mashaler.DetailedEntity buildPartial() {
         org.iminer.services.datacenter.Mashaler.DetailedEntity result = new org.iminer.services.datacenter.Mashaler.DetailedEntity(this);
         int from_bitField0_ = bitField0_;
@@ -2487,7 +3274,7 @@ public final class Mashaler {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.iminer.services.datacenter.Mashaler.DetailedEntity) {
           return mergeFrom((org.iminer.services.datacenter.Mashaler.DetailedEntity)other);
@@ -2496,20 +3283,26 @@ public final class Mashaler {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(org.iminer.services.datacenter.Mashaler.DetailedEntity other) {
         if (other == org.iminer.services.datacenter.Mashaler.DetailedEntity.getDefaultInstance()) return this;
         if (other.hasTitle()) {
-          setTitle(other.getTitle());
+          bitField0_ |= 0x00000001;
+          title_ = other.title_;
+          onChanged();
         }
         if (other.hasId()) {
           setId(other.getId());
         }
         if (other.hasUrl()) {
-          setUrl(other.getUrl());
+          bitField0_ |= 0x00000004;
+          url_ = other.url_;
+          onChanged();
         }
         if (other.hasDescription()) {
-          setDescription(other.getDescription());
+          bitField0_ |= 0x00000008;
+          description_ = other.description_;
+          onChanged();
         }
         if (statBuilder_ == null) {
           if (!other.stat_.isEmpty()) {
@@ -2538,10 +3331,14 @@ public final class Mashaler {
           }
         }
         if (other.hasTopics()) {
-          setTopics(other.getTopics());
+          bitField0_ |= 0x00000020;
+          topics_ = other.topics_;
+          onChanged();
         }
         if (other.hasImgurl()) {
-          setImgurl(other.getImgurl());
+          bitField0_ |= 0x00000040;
+          imgurl_ = other.imgurl_;
+          onChanged();
         }
         if (other.hasOriginalId()) {
           setOriginalId(other.getOriginalId());
@@ -2575,7 +3372,7 @@ public final class Mashaler {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (!hasTitle()) {
           
@@ -2599,99 +3396,69 @@ public final class Mashaler {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              title_ = input.readBytes();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              id_ = input.readInt32();
-              break;
-            }
-            case 26: {
-              bitField0_ |= 0x00000004;
-              url_ = input.readBytes();
-              break;
-            }
-            case 34: {
-              bitField0_ |= 0x00000008;
-              description_ = input.readBytes();
-              break;
-            }
-            case 42: {
-              org.iminer.services.datacenter.Mashaler.Stat.Builder subBuilder = org.iminer.services.datacenter.Mashaler.Stat.newBuilder();
-              input.readMessage(subBuilder, extensionRegistry);
-              addStat(subBuilder.buildPartial());
-              break;
-            }
-            case 50: {
-              bitField0_ |= 0x00000020;
-              topics_ = input.readBytes();
-              break;
-            }
-            case 58: {
-              bitField0_ |= 0x00000040;
-              imgurl_ = input.readBytes();
-              break;
-            }
-            case 64: {
-              bitField0_ |= 0x00000080;
-              originalId_ = input.readInt32();
-              break;
-            }
-            case 74: {
-              org.iminer.services.datacenter.Mashaler.RelatedEntity.Builder subBuilder = org.iminer.services.datacenter.Mashaler.RelatedEntity.newBuilder();
-              input.readMessage(subBuilder, extensionRegistry);
-              addRelatedEntity(subBuilder.buildPartial());
-              break;
-            }
+        org.iminer.services.datacenter.Mashaler.DetailedEntity parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.iminer.services.datacenter.Mashaler.DetailedEntity) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // required string title = 1;
       private java.lang.Object title_ = "";
+      /**
+       * <code>required string title = 1;</code>
+       */
       public boolean hasTitle() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      public String getTitle() {
+      /**
+       * <code>required string title = 1;</code>
+       */
+      public java.lang.String getTitle() {
         java.lang.Object ref = title_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           title_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setTitle(String value) {
+      /**
+       * <code>required string title = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTitleBytes() {
+        java.lang.Object ref = title_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          title_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string title = 1;</code>
+       */
+      public Builder setTitle(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2700,55 +3467,105 @@ public final class Mashaler {
         onChanged();
         return this;
       }
+      /**
+       * <code>required string title = 1;</code>
+       */
       public Builder clearTitle() {
         bitField0_ = (bitField0_ & ~0x00000001);
         title_ = getDefaultInstance().getTitle();
         onChanged();
         return this;
       }
-      void setTitle(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
+      /**
+       * <code>required string title = 1;</code>
+       */
+      public Builder setTitleBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         title_ = value;
         onChanged();
+        return this;
       }
-      
+
       // required int32 id = 2;
       private int id_ ;
+      /**
+       * <code>required int32 id = 2;</code>
+       */
       public boolean hasId() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
+      /**
+       * <code>required int32 id = 2;</code>
+       */
       public int getId() {
         return id_;
       }
+      /**
+       * <code>required int32 id = 2;</code>
+       */
       public Builder setId(int value) {
         bitField0_ |= 0x00000002;
         id_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required int32 id = 2;</code>
+       */
       public Builder clearId() {
         bitField0_ = (bitField0_ & ~0x00000002);
         id_ = 0;
         onChanged();
         return this;
       }
-      
+
       // optional string url = 3;
       private java.lang.Object url_ = "";
+      /**
+       * <code>optional string url = 3;</code>
+       */
       public boolean hasUrl() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
-      public String getUrl() {
+      /**
+       * <code>optional string url = 3;</code>
+       */
+      public java.lang.String getUrl() {
         java.lang.Object ref = url_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           url_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setUrl(String value) {
+      /**
+       * <code>optional string url = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUrlBytes() {
+        java.lang.Object ref = url_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          url_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string url = 3;</code>
+       */
+      public Builder setUrl(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2757,34 +3574,72 @@ public final class Mashaler {
         onChanged();
         return this;
       }
+      /**
+       * <code>optional string url = 3;</code>
+       */
       public Builder clearUrl() {
         bitField0_ = (bitField0_ & ~0x00000004);
         url_ = getDefaultInstance().getUrl();
         onChanged();
         return this;
       }
-      void setUrl(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000004;
+      /**
+       * <code>optional string url = 3;</code>
+       */
+      public Builder setUrlBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
         url_ = value;
         onChanged();
+        return this;
       }
-      
+
       // optional string description = 4;
       private java.lang.Object description_ = "";
+      /**
+       * <code>optional string description = 4;</code>
+       */
       public boolean hasDescription() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
-      public String getDescription() {
+      /**
+       * <code>optional string description = 4;</code>
+       */
+      public java.lang.String getDescription() {
         java.lang.Object ref = description_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           description_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setDescription(String value) {
+      /**
+       * <code>optional string description = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDescriptionBytes() {
+        java.lang.Object ref = description_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          description_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string description = 4;</code>
+       */
+      public Builder setDescription(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2793,18 +3648,29 @@ public final class Mashaler {
         onChanged();
         return this;
       }
+      /**
+       * <code>optional string description = 4;</code>
+       */
       public Builder clearDescription() {
         bitField0_ = (bitField0_ & ~0x00000008);
         description_ = getDefaultInstance().getDescription();
         onChanged();
         return this;
       }
-      void setDescription(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000008;
+      /**
+       * <code>optional string description = 4;</code>
+       */
+      public Builder setDescriptionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
         description_ = value;
         onChanged();
+        return this;
       }
-      
+
       // repeated .aminer.Stat stat = 5;
       private java.util.List<org.iminer.services.datacenter.Mashaler.Stat> stat_ =
         java.util.Collections.emptyList();
@@ -2814,10 +3680,13 @@ public final class Mashaler {
           bitField0_ |= 0x00000010;
          }
       }
-      
+
       private com.google.protobuf.RepeatedFieldBuilder<
           org.iminer.services.datacenter.Mashaler.Stat, org.iminer.services.datacenter.Mashaler.Stat.Builder, org.iminer.services.datacenter.Mashaler.StatOrBuilder> statBuilder_;
-      
+
+      /**
+       * <code>repeated .aminer.Stat stat = 5;</code>
+       */
       public java.util.List<org.iminer.services.datacenter.Mashaler.Stat> getStatList() {
         if (statBuilder_ == null) {
           return java.util.Collections.unmodifiableList(stat_);
@@ -2825,6 +3694,9 @@ public final class Mashaler {
           return statBuilder_.getMessageList();
         }
       }
+      /**
+       * <code>repeated .aminer.Stat stat = 5;</code>
+       */
       public int getStatCount() {
         if (statBuilder_ == null) {
           return stat_.size();
@@ -2832,6 +3704,9 @@ public final class Mashaler {
           return statBuilder_.getCount();
         }
       }
+      /**
+       * <code>repeated .aminer.Stat stat = 5;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.Stat getStat(int index) {
         if (statBuilder_ == null) {
           return stat_.get(index);
@@ -2839,6 +3714,9 @@ public final class Mashaler {
           return statBuilder_.getMessage(index);
         }
       }
+      /**
+       * <code>repeated .aminer.Stat stat = 5;</code>
+       */
       public Builder setStat(
           int index, org.iminer.services.datacenter.Mashaler.Stat value) {
         if (statBuilder_ == null) {
@@ -2853,6 +3731,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Stat stat = 5;</code>
+       */
       public Builder setStat(
           int index, org.iminer.services.datacenter.Mashaler.Stat.Builder builderForValue) {
         if (statBuilder_ == null) {
@@ -2864,6 +3745,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Stat stat = 5;</code>
+       */
       public Builder addStat(org.iminer.services.datacenter.Mashaler.Stat value) {
         if (statBuilder_ == null) {
           if (value == null) {
@@ -2877,6 +3761,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Stat stat = 5;</code>
+       */
       public Builder addStat(
           int index, org.iminer.services.datacenter.Mashaler.Stat value) {
         if (statBuilder_ == null) {
@@ -2891,6 +3778,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Stat stat = 5;</code>
+       */
       public Builder addStat(
           org.iminer.services.datacenter.Mashaler.Stat.Builder builderForValue) {
         if (statBuilder_ == null) {
@@ -2902,6 +3792,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Stat stat = 5;</code>
+       */
       public Builder addStat(
           int index, org.iminer.services.datacenter.Mashaler.Stat.Builder builderForValue) {
         if (statBuilder_ == null) {
@@ -2913,6 +3806,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Stat stat = 5;</code>
+       */
       public Builder addAllStat(
           java.lang.Iterable<? extends org.iminer.services.datacenter.Mashaler.Stat> values) {
         if (statBuilder_ == null) {
@@ -2924,6 +3820,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Stat stat = 5;</code>
+       */
       public Builder clearStat() {
         if (statBuilder_ == null) {
           stat_ = java.util.Collections.emptyList();
@@ -2934,6 +3833,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Stat stat = 5;</code>
+       */
       public Builder removeStat(int index) {
         if (statBuilder_ == null) {
           ensureStatIsMutable();
@@ -2944,10 +3846,16 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Stat stat = 5;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.Stat.Builder getStatBuilder(
           int index) {
         return getStatFieldBuilder().getBuilder(index);
       }
+      /**
+       * <code>repeated .aminer.Stat stat = 5;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.StatOrBuilder getStatOrBuilder(
           int index) {
         if (statBuilder_ == null) {
@@ -2955,6 +3863,9 @@ public final class Mashaler {
           return statBuilder_.getMessageOrBuilder(index);
         }
       }
+      /**
+       * <code>repeated .aminer.Stat stat = 5;</code>
+       */
       public java.util.List<? extends org.iminer.services.datacenter.Mashaler.StatOrBuilder> 
            getStatOrBuilderList() {
         if (statBuilder_ != null) {
@@ -2963,15 +3874,24 @@ public final class Mashaler {
           return java.util.Collections.unmodifiableList(stat_);
         }
       }
+      /**
+       * <code>repeated .aminer.Stat stat = 5;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.Stat.Builder addStatBuilder() {
         return getStatFieldBuilder().addBuilder(
             org.iminer.services.datacenter.Mashaler.Stat.getDefaultInstance());
       }
+      /**
+       * <code>repeated .aminer.Stat stat = 5;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.Stat.Builder addStatBuilder(
           int index) {
         return getStatFieldBuilder().addBuilder(
             index, org.iminer.services.datacenter.Mashaler.Stat.getDefaultInstance());
       }
+      /**
+       * <code>repeated .aminer.Stat stat = 5;</code>
+       */
       public java.util.List<org.iminer.services.datacenter.Mashaler.Stat.Builder> 
            getStatBuilderList() {
         return getStatFieldBuilder().getBuilderList();
@@ -2990,23 +3910,50 @@ public final class Mashaler {
         }
         return statBuilder_;
       }
-      
+
       // optional string topics = 6;
       private java.lang.Object topics_ = "";
+      /**
+       * <code>optional string topics = 6;</code>
+       */
       public boolean hasTopics() {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
-      public String getTopics() {
+      /**
+       * <code>optional string topics = 6;</code>
+       */
+      public java.lang.String getTopics() {
         java.lang.Object ref = topics_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           topics_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setTopics(String value) {
+      /**
+       * <code>optional string topics = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTopicsBytes() {
+        java.lang.Object ref = topics_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          topics_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string topics = 6;</code>
+       */
+      public Builder setTopics(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -3015,34 +3962,72 @@ public final class Mashaler {
         onChanged();
         return this;
       }
+      /**
+       * <code>optional string topics = 6;</code>
+       */
       public Builder clearTopics() {
         bitField0_ = (bitField0_ & ~0x00000020);
         topics_ = getDefaultInstance().getTopics();
         onChanged();
         return this;
       }
-      void setTopics(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000020;
+      /**
+       * <code>optional string topics = 6;</code>
+       */
+      public Builder setTopicsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
         topics_ = value;
         onChanged();
+        return this;
       }
-      
+
       // optional string imgurl = 7;
       private java.lang.Object imgurl_ = "";
+      /**
+       * <code>optional string imgurl = 7;</code>
+       */
       public boolean hasImgurl() {
         return ((bitField0_ & 0x00000040) == 0x00000040);
       }
-      public String getImgurl() {
+      /**
+       * <code>optional string imgurl = 7;</code>
+       */
+      public java.lang.String getImgurl() {
         java.lang.Object ref = imgurl_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           imgurl_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setImgurl(String value) {
+      /**
+       * <code>optional string imgurl = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getImgurlBytes() {
+        java.lang.Object ref = imgurl_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          imgurl_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string imgurl = 7;</code>
+       */
+      public Builder setImgurl(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -3051,39 +4036,62 @@ public final class Mashaler {
         onChanged();
         return this;
       }
+      /**
+       * <code>optional string imgurl = 7;</code>
+       */
       public Builder clearImgurl() {
         bitField0_ = (bitField0_ & ~0x00000040);
         imgurl_ = getDefaultInstance().getImgurl();
         onChanged();
         return this;
       }
-      void setImgurl(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000040;
+      /**
+       * <code>optional string imgurl = 7;</code>
+       */
+      public Builder setImgurlBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
         imgurl_ = value;
         onChanged();
+        return this;
       }
-      
+
       // optional int32 original_id = 8;
       private int originalId_ ;
+      /**
+       * <code>optional int32 original_id = 8;</code>
+       */
       public boolean hasOriginalId() {
         return ((bitField0_ & 0x00000080) == 0x00000080);
       }
+      /**
+       * <code>optional int32 original_id = 8;</code>
+       */
       public int getOriginalId() {
         return originalId_;
       }
+      /**
+       * <code>optional int32 original_id = 8;</code>
+       */
       public Builder setOriginalId(int value) {
         bitField0_ |= 0x00000080;
         originalId_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>optional int32 original_id = 8;</code>
+       */
       public Builder clearOriginalId() {
         bitField0_ = (bitField0_ & ~0x00000080);
         originalId_ = 0;
         onChanged();
         return this;
       }
-      
+
       // repeated .aminer.RelatedEntity related_entity = 9;
       private java.util.List<org.iminer.services.datacenter.Mashaler.RelatedEntity> relatedEntity_ =
         java.util.Collections.emptyList();
@@ -3093,10 +4101,13 @@ public final class Mashaler {
           bitField0_ |= 0x00000100;
          }
       }
-      
+
       private com.google.protobuf.RepeatedFieldBuilder<
           org.iminer.services.datacenter.Mashaler.RelatedEntity, org.iminer.services.datacenter.Mashaler.RelatedEntity.Builder, org.iminer.services.datacenter.Mashaler.RelatedEntityOrBuilder> relatedEntityBuilder_;
-      
+
+      /**
+       * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+       */
       public java.util.List<org.iminer.services.datacenter.Mashaler.RelatedEntity> getRelatedEntityList() {
         if (relatedEntityBuilder_ == null) {
           return java.util.Collections.unmodifiableList(relatedEntity_);
@@ -3104,6 +4115,9 @@ public final class Mashaler {
           return relatedEntityBuilder_.getMessageList();
         }
       }
+      /**
+       * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+       */
       public int getRelatedEntityCount() {
         if (relatedEntityBuilder_ == null) {
           return relatedEntity_.size();
@@ -3111,6 +4125,9 @@ public final class Mashaler {
           return relatedEntityBuilder_.getCount();
         }
       }
+      /**
+       * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.RelatedEntity getRelatedEntity(int index) {
         if (relatedEntityBuilder_ == null) {
           return relatedEntity_.get(index);
@@ -3118,6 +4135,9 @@ public final class Mashaler {
           return relatedEntityBuilder_.getMessage(index);
         }
       }
+      /**
+       * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+       */
       public Builder setRelatedEntity(
           int index, org.iminer.services.datacenter.Mashaler.RelatedEntity value) {
         if (relatedEntityBuilder_ == null) {
@@ -3132,6 +4152,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+       */
       public Builder setRelatedEntity(
           int index, org.iminer.services.datacenter.Mashaler.RelatedEntity.Builder builderForValue) {
         if (relatedEntityBuilder_ == null) {
@@ -3143,6 +4166,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+       */
       public Builder addRelatedEntity(org.iminer.services.datacenter.Mashaler.RelatedEntity value) {
         if (relatedEntityBuilder_ == null) {
           if (value == null) {
@@ -3156,6 +4182,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+       */
       public Builder addRelatedEntity(
           int index, org.iminer.services.datacenter.Mashaler.RelatedEntity value) {
         if (relatedEntityBuilder_ == null) {
@@ -3170,6 +4199,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+       */
       public Builder addRelatedEntity(
           org.iminer.services.datacenter.Mashaler.RelatedEntity.Builder builderForValue) {
         if (relatedEntityBuilder_ == null) {
@@ -3181,6 +4213,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+       */
       public Builder addRelatedEntity(
           int index, org.iminer.services.datacenter.Mashaler.RelatedEntity.Builder builderForValue) {
         if (relatedEntityBuilder_ == null) {
@@ -3192,6 +4227,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+       */
       public Builder addAllRelatedEntity(
           java.lang.Iterable<? extends org.iminer.services.datacenter.Mashaler.RelatedEntity> values) {
         if (relatedEntityBuilder_ == null) {
@@ -3203,6 +4241,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+       */
       public Builder clearRelatedEntity() {
         if (relatedEntityBuilder_ == null) {
           relatedEntity_ = java.util.Collections.emptyList();
@@ -3213,6 +4254,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+       */
       public Builder removeRelatedEntity(int index) {
         if (relatedEntityBuilder_ == null) {
           ensureRelatedEntityIsMutable();
@@ -3223,10 +4267,16 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.RelatedEntity.Builder getRelatedEntityBuilder(
           int index) {
         return getRelatedEntityFieldBuilder().getBuilder(index);
       }
+      /**
+       * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.RelatedEntityOrBuilder getRelatedEntityOrBuilder(
           int index) {
         if (relatedEntityBuilder_ == null) {
@@ -3234,6 +4284,9 @@ public final class Mashaler {
           return relatedEntityBuilder_.getMessageOrBuilder(index);
         }
       }
+      /**
+       * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+       */
       public java.util.List<? extends org.iminer.services.datacenter.Mashaler.RelatedEntityOrBuilder> 
            getRelatedEntityOrBuilderList() {
         if (relatedEntityBuilder_ != null) {
@@ -3242,15 +4295,24 @@ public final class Mashaler {
           return java.util.Collections.unmodifiableList(relatedEntity_);
         }
       }
+      /**
+       * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.RelatedEntity.Builder addRelatedEntityBuilder() {
         return getRelatedEntityFieldBuilder().addBuilder(
             org.iminer.services.datacenter.Mashaler.RelatedEntity.getDefaultInstance());
       }
+      /**
+       * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.RelatedEntity.Builder addRelatedEntityBuilder(
           int index) {
         return getRelatedEntityFieldBuilder().addBuilder(
             index, org.iminer.services.datacenter.Mashaler.RelatedEntity.getDefaultInstance());
       }
+      /**
+       * <code>repeated .aminer.RelatedEntity related_entity = 9;</code>
+       */
       public java.util.List<org.iminer.services.datacenter.Mashaler.RelatedEntity.Builder> 
            getRelatedEntityBuilderList() {
         return getRelatedEntityFieldBuilder().getBuilderList();
@@ -3269,131 +4331,278 @@ public final class Mashaler {
         }
         return relatedEntityBuilder_;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:aminer.DetailedEntity)
     }
-    
+
     static {
       defaultInstance = new DetailedEntity(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:aminer.DetailedEntity)
   }
-  
+
   public interface EntitySearchResponseOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // required string query = 1;
+    /**
+     * <code>required string query = 1;</code>
+     */
     boolean hasQuery();
-    String getQuery();
-    
+    /**
+     * <code>required string query = 1;</code>
+     */
+    java.lang.String getQuery();
+    /**
+     * <code>required string query = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getQueryBytes();
+
     // required int32 total_count = 2;
+    /**
+     * <code>required int32 total_count = 2;</code>
+     */
     boolean hasTotalCount();
+    /**
+     * <code>required int32 total_count = 2;</code>
+     */
     int getTotalCount();
-    
+
     // repeated .aminer.DetailedEntity entity = 3;
+    /**
+     * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+     */
     java.util.List<org.iminer.services.datacenter.Mashaler.DetailedEntity> 
         getEntityList();
+    /**
+     * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+     */
     org.iminer.services.datacenter.Mashaler.DetailedEntity getEntity(int index);
+    /**
+     * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+     */
     int getEntityCount();
+    /**
+     * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+     */
     java.util.List<? extends org.iminer.services.datacenter.Mashaler.DetailedEntityOrBuilder> 
         getEntityOrBuilderList();
+    /**
+     * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+     */
     org.iminer.services.datacenter.Mashaler.DetailedEntityOrBuilder getEntityOrBuilder(
         int index);
   }
+  /**
+   * Protobuf type {@code aminer.EntitySearchResponse}
+   */
   public static final class EntitySearchResponse extends
       com.google.protobuf.GeneratedMessage
       implements EntitySearchResponseOrBuilder {
     // Use EntitySearchResponse.newBuilder() to construct.
-    private EntitySearchResponse(Builder builder) {
+    private EntitySearchResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private EntitySearchResponse(boolean noInit) {}
-    
+    private EntitySearchResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final EntitySearchResponse defaultInstance;
     public static EntitySearchResponse getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public EntitySearchResponse getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private EntitySearchResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              query_ = input.readBytes();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              totalCount_ = input.readInt32();
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                entity_ = new java.util.ArrayList<org.iminer.services.datacenter.Mashaler.DetailedEntity>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              entity_.add(input.readMessage(org.iminer.services.datacenter.Mashaler.DetailedEntity.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          entity_ = java.util.Collections.unmodifiableList(entity_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntitySearchResponse_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntitySearchResponse_fieldAccessorTable;
+      return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntitySearchResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.iminer.services.datacenter.Mashaler.EntitySearchResponse.class, org.iminer.services.datacenter.Mashaler.EntitySearchResponse.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<EntitySearchResponse> PARSER =
+        new com.google.protobuf.AbstractParser<EntitySearchResponse>() {
+      public EntitySearchResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new EntitySearchResponse(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<EntitySearchResponse> getParserForType() {
+      return PARSER;
+    }
+
     private int bitField0_;
     // required string query = 1;
     public static final int QUERY_FIELD_NUMBER = 1;
     private java.lang.Object query_;
+    /**
+     * <code>required string query = 1;</code>
+     */
     public boolean hasQuery() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    public String getQuery() {
+    /**
+     * <code>required string query = 1;</code>
+     */
+    public java.lang.String getQuery() {
       java.lang.Object ref = query_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           query_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getQueryBytes() {
+    /**
+     * <code>required string query = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getQueryBytes() {
       java.lang.Object ref = query_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         query_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
     // required int32 total_count = 2;
     public static final int TOTAL_COUNT_FIELD_NUMBER = 2;
     private int totalCount_;
+    /**
+     * <code>required int32 total_count = 2;</code>
+     */
     public boolean hasTotalCount() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
+    /**
+     * <code>required int32 total_count = 2;</code>
+     */
     public int getTotalCount() {
       return totalCount_;
     }
-    
+
     // repeated .aminer.DetailedEntity entity = 3;
     public static final int ENTITY_FIELD_NUMBER = 3;
     private java.util.List<org.iminer.services.datacenter.Mashaler.DetailedEntity> entity_;
+    /**
+     * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+     */
     public java.util.List<org.iminer.services.datacenter.Mashaler.DetailedEntity> getEntityList() {
       return entity_;
     }
+    /**
+     * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+     */
     public java.util.List<? extends org.iminer.services.datacenter.Mashaler.DetailedEntityOrBuilder> 
         getEntityOrBuilderList() {
       return entity_;
     }
+    /**
+     * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+     */
     public int getEntityCount() {
       return entity_.size();
     }
+    /**
+     * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+     */
     public org.iminer.services.datacenter.Mashaler.DetailedEntity getEntity(int index) {
       return entity_.get(index);
     }
+    /**
+     * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+     */
     public org.iminer.services.datacenter.Mashaler.DetailedEntityOrBuilder getEntityOrBuilder(
         int index) {
       return entity_.get(index);
     }
-    
+
     private void initFields() {
       query_ = "";
       totalCount_ = 0;
@@ -3403,7 +4612,7 @@ public final class Mashaler {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       if (!hasQuery()) {
         memoizedIsInitialized = 0;
         return false;
@@ -3421,7 +4630,7 @@ public final class Mashaler {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -3436,12 +4645,12 @@ public final class Mashaler {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -3459,94 +4668,83 @@ public final class Mashaler {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static org.iminer.services.datacenter.Mashaler.EntitySearchResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.iminer.services.datacenter.Mashaler.EntitySearchResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.EntitySearchResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.iminer.services.datacenter.Mashaler.EntitySearchResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.EntitySearchResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.iminer.services.datacenter.Mashaler.EntitySearchResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.EntitySearchResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static org.iminer.services.datacenter.Mashaler.EntitySearchResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.EntitySearchResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.iminer.services.datacenter.Mashaler.EntitySearchResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(org.iminer.services.datacenter.Mashaler.EntitySearchResponse prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code aminer.EntitySearchResponse}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements org.iminer.services.datacenter.Mashaler.EntitySearchResponseOrBuilder {
@@ -3554,18 +4752,21 @@ public final class Mashaler {
           getDescriptor() {
         return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntitySearchResponse_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntitySearchResponse_fieldAccessorTable;
+        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntitySearchResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.iminer.services.datacenter.Mashaler.EntitySearchResponse.class, org.iminer.services.datacenter.Mashaler.EntitySearchResponse.Builder.class);
       }
-      
+
       // Construct using org.iminer.services.datacenter.Mashaler.EntitySearchResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -3577,7 +4778,7 @@ public final class Mashaler {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         query_ = "";
@@ -3592,20 +4793,20 @@ public final class Mashaler {
         }
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.iminer.services.datacenter.Mashaler.EntitySearchResponse.getDescriptor();
+        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_EntitySearchResponse_descriptor;
       }
-      
+
       public org.iminer.services.datacenter.Mashaler.EntitySearchResponse getDefaultInstanceForType() {
         return org.iminer.services.datacenter.Mashaler.EntitySearchResponse.getDefaultInstance();
       }
-      
+
       public org.iminer.services.datacenter.Mashaler.EntitySearchResponse build() {
         org.iminer.services.datacenter.Mashaler.EntitySearchResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -3613,17 +4814,7 @@ public final class Mashaler {
         }
         return result;
       }
-      
-      private org.iminer.services.datacenter.Mashaler.EntitySearchResponse buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        org.iminer.services.datacenter.Mashaler.EntitySearchResponse result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public org.iminer.services.datacenter.Mashaler.EntitySearchResponse buildPartial() {
         org.iminer.services.datacenter.Mashaler.EntitySearchResponse result = new org.iminer.services.datacenter.Mashaler.EntitySearchResponse(this);
         int from_bitField0_ = bitField0_;
@@ -3649,7 +4840,7 @@ public final class Mashaler {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.iminer.services.datacenter.Mashaler.EntitySearchResponse) {
           return mergeFrom((org.iminer.services.datacenter.Mashaler.EntitySearchResponse)other);
@@ -3658,11 +4849,13 @@ public final class Mashaler {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(org.iminer.services.datacenter.Mashaler.EntitySearchResponse other) {
         if (other == org.iminer.services.datacenter.Mashaler.EntitySearchResponse.getDefaultInstance()) return this;
         if (other.hasQuery()) {
-          setQuery(other.getQuery());
+          bitField0_ |= 0x00000001;
+          query_ = other.query_;
+          onChanged();
         }
         if (other.hasTotalCount()) {
           setTotalCount(other.getTotalCount());
@@ -3696,7 +4889,7 @@ public final class Mashaler {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (!hasQuery()) {
           
@@ -3714,68 +4907,69 @@ public final class Mashaler {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              query_ = input.readBytes();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              totalCount_ = input.readInt32();
-              break;
-            }
-            case 26: {
-              org.iminer.services.datacenter.Mashaler.DetailedEntity.Builder subBuilder = org.iminer.services.datacenter.Mashaler.DetailedEntity.newBuilder();
-              input.readMessage(subBuilder, extensionRegistry);
-              addEntity(subBuilder.buildPartial());
-              break;
-            }
+        org.iminer.services.datacenter.Mashaler.EntitySearchResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.iminer.services.datacenter.Mashaler.EntitySearchResponse) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // required string query = 1;
       private java.lang.Object query_ = "";
+      /**
+       * <code>required string query = 1;</code>
+       */
       public boolean hasQuery() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      public String getQuery() {
+      /**
+       * <code>required string query = 1;</code>
+       */
+      public java.lang.String getQuery() {
         java.lang.Object ref = query_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           query_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setQuery(String value) {
+      /**
+       * <code>required string query = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getQueryBytes() {
+        java.lang.Object ref = query_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          query_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string query = 1;</code>
+       */
+      public Builder setQuery(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -3784,39 +4978,62 @@ public final class Mashaler {
         onChanged();
         return this;
       }
+      /**
+       * <code>required string query = 1;</code>
+       */
       public Builder clearQuery() {
         bitField0_ = (bitField0_ & ~0x00000001);
         query_ = getDefaultInstance().getQuery();
         onChanged();
         return this;
       }
-      void setQuery(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
+      /**
+       * <code>required string query = 1;</code>
+       */
+      public Builder setQueryBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         query_ = value;
         onChanged();
+        return this;
       }
-      
+
       // required int32 total_count = 2;
       private int totalCount_ ;
+      /**
+       * <code>required int32 total_count = 2;</code>
+       */
       public boolean hasTotalCount() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
+      /**
+       * <code>required int32 total_count = 2;</code>
+       */
       public int getTotalCount() {
         return totalCount_;
       }
+      /**
+       * <code>required int32 total_count = 2;</code>
+       */
       public Builder setTotalCount(int value) {
         bitField0_ |= 0x00000002;
         totalCount_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required int32 total_count = 2;</code>
+       */
       public Builder clearTotalCount() {
         bitField0_ = (bitField0_ & ~0x00000002);
         totalCount_ = 0;
         onChanged();
         return this;
       }
-      
+
       // repeated .aminer.DetailedEntity entity = 3;
       private java.util.List<org.iminer.services.datacenter.Mashaler.DetailedEntity> entity_ =
         java.util.Collections.emptyList();
@@ -3826,10 +5043,13 @@ public final class Mashaler {
           bitField0_ |= 0x00000004;
          }
       }
-      
+
       private com.google.protobuf.RepeatedFieldBuilder<
           org.iminer.services.datacenter.Mashaler.DetailedEntity, org.iminer.services.datacenter.Mashaler.DetailedEntity.Builder, org.iminer.services.datacenter.Mashaler.DetailedEntityOrBuilder> entityBuilder_;
-      
+
+      /**
+       * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+       */
       public java.util.List<org.iminer.services.datacenter.Mashaler.DetailedEntity> getEntityList() {
         if (entityBuilder_ == null) {
           return java.util.Collections.unmodifiableList(entity_);
@@ -3837,6 +5057,9 @@ public final class Mashaler {
           return entityBuilder_.getMessageList();
         }
       }
+      /**
+       * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+       */
       public int getEntityCount() {
         if (entityBuilder_ == null) {
           return entity_.size();
@@ -3844,6 +5067,9 @@ public final class Mashaler {
           return entityBuilder_.getCount();
         }
       }
+      /**
+       * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.DetailedEntity getEntity(int index) {
         if (entityBuilder_ == null) {
           return entity_.get(index);
@@ -3851,6 +5077,9 @@ public final class Mashaler {
           return entityBuilder_.getMessage(index);
         }
       }
+      /**
+       * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+       */
       public Builder setEntity(
           int index, org.iminer.services.datacenter.Mashaler.DetailedEntity value) {
         if (entityBuilder_ == null) {
@@ -3865,6 +5094,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+       */
       public Builder setEntity(
           int index, org.iminer.services.datacenter.Mashaler.DetailedEntity.Builder builderForValue) {
         if (entityBuilder_ == null) {
@@ -3876,6 +5108,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+       */
       public Builder addEntity(org.iminer.services.datacenter.Mashaler.DetailedEntity value) {
         if (entityBuilder_ == null) {
           if (value == null) {
@@ -3889,6 +5124,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+       */
       public Builder addEntity(
           int index, org.iminer.services.datacenter.Mashaler.DetailedEntity value) {
         if (entityBuilder_ == null) {
@@ -3903,6 +5141,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+       */
       public Builder addEntity(
           org.iminer.services.datacenter.Mashaler.DetailedEntity.Builder builderForValue) {
         if (entityBuilder_ == null) {
@@ -3914,6 +5155,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+       */
       public Builder addEntity(
           int index, org.iminer.services.datacenter.Mashaler.DetailedEntity.Builder builderForValue) {
         if (entityBuilder_ == null) {
@@ -3925,6 +5169,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+       */
       public Builder addAllEntity(
           java.lang.Iterable<? extends org.iminer.services.datacenter.Mashaler.DetailedEntity> values) {
         if (entityBuilder_ == null) {
@@ -3936,6 +5183,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+       */
       public Builder clearEntity() {
         if (entityBuilder_ == null) {
           entity_ = java.util.Collections.emptyList();
@@ -3946,6 +5196,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+       */
       public Builder removeEntity(int index) {
         if (entityBuilder_ == null) {
           ensureEntityIsMutable();
@@ -3956,10 +5209,16 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.DetailedEntity.Builder getEntityBuilder(
           int index) {
         return getEntityFieldBuilder().getBuilder(index);
       }
+      /**
+       * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.DetailedEntityOrBuilder getEntityOrBuilder(
           int index) {
         if (entityBuilder_ == null) {
@@ -3967,6 +5226,9 @@ public final class Mashaler {
           return entityBuilder_.getMessageOrBuilder(index);
         }
       }
+      /**
+       * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+       */
       public java.util.List<? extends org.iminer.services.datacenter.Mashaler.DetailedEntityOrBuilder> 
            getEntityOrBuilderList() {
         if (entityBuilder_ != null) {
@@ -3975,15 +5237,24 @@ public final class Mashaler {
           return java.util.Collections.unmodifiableList(entity_);
         }
       }
+      /**
+       * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.DetailedEntity.Builder addEntityBuilder() {
         return getEntityFieldBuilder().addBuilder(
             org.iminer.services.datacenter.Mashaler.DetailedEntity.getDefaultInstance());
       }
+      /**
+       * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.DetailedEntity.Builder addEntityBuilder(
           int index) {
         return getEntityFieldBuilder().addBuilder(
             index, org.iminer.services.datacenter.Mashaler.DetailedEntity.getDefaultInstance());
       }
+      /**
+       * <code>repeated .aminer.DetailedEntity entity = 3;</code>
+       */
       public java.util.List<org.iminer.services.datacenter.Mashaler.DetailedEntity.Builder> 
            getEntityBuilderList() {
         return getEntityFieldBuilder().getBuilderList();
@@ -4002,396 +5273,99 @@ public final class Mashaler {
         }
         return entityBuilder_;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:aminer.EntitySearchResponse)
     }
-    
+
     static {
       defaultInstance = new EntitySearchResponse(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:aminer.EntitySearchResponse)
   }
-  
+
   public interface InfluenceOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // required int32 id = 1;
+    /**
+     * <code>required int32 id = 1;</code>
+     */
     boolean hasId();
+    /**
+     * <code>required int32 id = 1;</code>
+     */
     int getId();
-    
+
     // required int32 topic = 2;
+    /**
+     * <code>required int32 topic = 2;</code>
+     */
     boolean hasTopic();
+    /**
+     * <code>required int32 topic = 2;</code>
+     */
     int getTopic();
-    
+
     // required double score = 3;
+    /**
+     * <code>required double score = 3;</code>
+     */
     boolean hasScore();
+    /**
+     * <code>required double score = 3;</code>
+     */
     double getScore();
   }
+  /**
+   * Protobuf type {@code aminer.Influence}
+   */
   public static final class Influence extends
       com.google.protobuf.GeneratedMessage
       implements InfluenceOrBuilder {
     // Use Influence.newBuilder() to construct.
-    private Influence(Builder builder) {
+    private Influence(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private Influence(boolean noInit) {}
-    
+    private Influence(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final Influence defaultInstance;
     public static Influence getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public Influence getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return org.iminer.services.datacenter.Mashaler.internal_static_aminer_Influence_descriptor;
-    }
-    
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return org.iminer.services.datacenter.Mashaler.internal_static_aminer_Influence_fieldAccessorTable;
-    }
-    
-    private int bitField0_;
-    // required int32 id = 1;
-    public static final int ID_FIELD_NUMBER = 1;
-    private int id_;
-    public boolean hasId() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    public int getId() {
-      return id_;
-    }
-    
-    // required int32 topic = 2;
-    public static final int TOPIC_FIELD_NUMBER = 2;
-    private int topic_;
-    public boolean hasTopic() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    public int getTopic() {
-      return topic_;
-    }
-    
-    // required double score = 3;
-    public static final int SCORE_FIELD_NUMBER = 3;
-    private double score_;
-    public boolean hasScore() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    public double getScore() {
-      return score_;
-    }
-    
-    private void initFields() {
-      id_ = 0;
-      topic_ = 0;
-      score_ = 0D;
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-      
-      if (!hasId()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasTopic()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasScore()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      memoizedIsInitialized = 1;
-      return true;
-    }
-    
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, id_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, topic_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeDouble(3, score_);
-      }
-      getUnknownFields().writeTo(output);
-    }
-    
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-    
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, id_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, topic_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(3, score_);
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-    
-    private static final long serialVersionUID = 0L;
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
     }
-    
-    public static org.iminer.services.datacenter.Mashaler.Influence parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
-    }
-    public static org.iminer.services.datacenter.Mashaler.Influence parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
-    }
-    public static org.iminer.services.datacenter.Mashaler.Influence parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
-    }
-    public static org.iminer.services.datacenter.Mashaler.Influence parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
-    }
-    public static org.iminer.services.datacenter.Mashaler.Influence parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
-    }
-    public static org.iminer.services.datacenter.Mashaler.Influence parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
-    }
-    public static org.iminer.services.datacenter.Mashaler.Influence parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
-    }
-    public static org.iminer.services.datacenter.Mashaler.Influence parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
-    }
-    public static org.iminer.services.datacenter.Mashaler.Influence parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
-    }
-    public static org.iminer.services.datacenter.Mashaler.Influence parseFrom(
+    private Influence(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
-    }
-    
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.iminer.services.datacenter.Mashaler.Influence prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-    
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.iminer.services.datacenter.Mashaler.InfluenceOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_Influence_descriptor;
-      }
-      
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_Influence_fieldAccessorTable;
-      }
-      
-      // Construct using org.iminer.services.datacenter.Mashaler.Influence.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-      
-      private Builder(BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-      
-      public Builder clear() {
-        super.clear();
-        id_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        topic_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        score_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        return this;
-      }
-      
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-      
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return org.iminer.services.datacenter.Mashaler.Influence.getDescriptor();
-      }
-      
-      public org.iminer.services.datacenter.Mashaler.Influence getDefaultInstanceForType() {
-        return org.iminer.services.datacenter.Mashaler.Influence.getDefaultInstance();
-      }
-      
-      public org.iminer.services.datacenter.Mashaler.Influence build() {
-        org.iminer.services.datacenter.Mashaler.Influence result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-      
-      private org.iminer.services.datacenter.Mashaler.Influence buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        org.iminer.services.datacenter.Mashaler.Influence result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
-      public org.iminer.services.datacenter.Mashaler.Influence buildPartial() {
-        org.iminer.services.datacenter.Mashaler.Influence result = new org.iminer.services.datacenter.Mashaler.Influence(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.id_ = id_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.topic_ = topic_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.score_ = score_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-      
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof org.iminer.services.datacenter.Mashaler.Influence) {
-          return mergeFrom((org.iminer.services.datacenter.Mashaler.Influence)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-      
-      public Builder mergeFrom(org.iminer.services.datacenter.Mashaler.Influence other) {
-        if (other == org.iminer.services.datacenter.Mashaler.Influence.getDefaultInstance()) return this;
-        if (other.hasId()) {
-          setId(other.getId());
-        }
-        if (other.hasTopic()) {
-          setTopic(other.getTopic());
-        }
-        if (other.hasScore()) {
-          setScore(other.getScore());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-      
-      public final boolean isInitialized() {
-        if (!hasId()) {
-          
-          return false;
-        }
-        if (!hasTopic()) {
-          
-          return false;
-        }
-        if (!hasScore()) {
-          
-          return false;
-        }
-        return true;
-      }
-      
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
+              done = true;
+              break;
             default: {
               if (!parseUnknownField(input, unknownFields,
                                      extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
+                done = true;
               }
               break;
             }
@@ -4412,192 +5386,756 @@ public final class Mashaler {
             }
           }
         }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
       }
-      
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.iminer.services.datacenter.Mashaler.internal_static_aminer_Influence_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.iminer.services.datacenter.Mashaler.internal_static_aminer_Influence_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.iminer.services.datacenter.Mashaler.Influence.class, org.iminer.services.datacenter.Mashaler.Influence.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<Influence> PARSER =
+        new com.google.protobuf.AbstractParser<Influence>() {
+      public Influence parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Influence(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Influence> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required int32 id = 1;
+    public static final int ID_FIELD_NUMBER = 1;
+    private int id_;
+    /**
+     * <code>required int32 id = 1;</code>
+     */
+    public boolean hasId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 id = 1;</code>
+     */
+    public int getId() {
+      return id_;
+    }
+
+    // required int32 topic = 2;
+    public static final int TOPIC_FIELD_NUMBER = 2;
+    private int topic_;
+    /**
+     * <code>required int32 topic = 2;</code>
+     */
+    public boolean hasTopic() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 topic = 2;</code>
+     */
+    public int getTopic() {
+      return topic_;
+    }
+
+    // required double score = 3;
+    public static final int SCORE_FIELD_NUMBER = 3;
+    private double score_;
+    /**
+     * <code>required double score = 3;</code>
+     */
+    public boolean hasScore() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required double score = 3;</code>
+     */
+    public double getScore() {
+      return score_;
+    }
+
+    private void initFields() {
+      id_ = 0;
+      topic_ = 0;
+      score_ = 0D;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasTopic()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasScore()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, id_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, topic_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeDouble(3, score_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, id_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, topic_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(3, score_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static org.iminer.services.datacenter.Mashaler.Influence parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.iminer.services.datacenter.Mashaler.Influence parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.iminer.services.datacenter.Mashaler.Influence parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.iminer.services.datacenter.Mashaler.Influence parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.iminer.services.datacenter.Mashaler.Influence parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static org.iminer.services.datacenter.Mashaler.Influence parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static org.iminer.services.datacenter.Mashaler.Influence parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static org.iminer.services.datacenter.Mashaler.Influence parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static org.iminer.services.datacenter.Mashaler.Influence parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static org.iminer.services.datacenter.Mashaler.Influence parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(org.iminer.services.datacenter.Mashaler.Influence prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code aminer.Influence}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements org.iminer.services.datacenter.Mashaler.InfluenceOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_Influence_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_Influence_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.iminer.services.datacenter.Mashaler.Influence.class, org.iminer.services.datacenter.Mashaler.Influence.Builder.class);
+      }
+
+      // Construct using org.iminer.services.datacenter.Mashaler.Influence.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        id_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        topic_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        score_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_Influence_descriptor;
+      }
+
+      public org.iminer.services.datacenter.Mashaler.Influence getDefaultInstanceForType() {
+        return org.iminer.services.datacenter.Mashaler.Influence.getDefaultInstance();
+      }
+
+      public org.iminer.services.datacenter.Mashaler.Influence build() {
+        org.iminer.services.datacenter.Mashaler.Influence result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.iminer.services.datacenter.Mashaler.Influence buildPartial() {
+        org.iminer.services.datacenter.Mashaler.Influence result = new org.iminer.services.datacenter.Mashaler.Influence(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.id_ = id_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.topic_ = topic_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.score_ = score_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.iminer.services.datacenter.Mashaler.Influence) {
+          return mergeFrom((org.iminer.services.datacenter.Mashaler.Influence)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.iminer.services.datacenter.Mashaler.Influence other) {
+        if (other == org.iminer.services.datacenter.Mashaler.Influence.getDefaultInstance()) return this;
+        if (other.hasId()) {
+          setId(other.getId());
+        }
+        if (other.hasTopic()) {
+          setTopic(other.getTopic());
+        }
+        if (other.hasScore()) {
+          setScore(other.getScore());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasId()) {
+          
+          return false;
+        }
+        if (!hasTopic()) {
+          
+          return false;
+        }
+        if (!hasScore()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.iminer.services.datacenter.Mashaler.Influence parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.iminer.services.datacenter.Mashaler.Influence) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
       private int bitField0_;
-      
+
       // required int32 id = 1;
       private int id_ ;
+      /**
+       * <code>required int32 id = 1;</code>
+       */
       public boolean hasId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
+      /**
+       * <code>required int32 id = 1;</code>
+       */
       public int getId() {
         return id_;
       }
+      /**
+       * <code>required int32 id = 1;</code>
+       */
       public Builder setId(int value) {
         bitField0_ |= 0x00000001;
         id_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required int32 id = 1;</code>
+       */
       public Builder clearId() {
         bitField0_ = (bitField0_ & ~0x00000001);
         id_ = 0;
         onChanged();
         return this;
       }
-      
+
       // required int32 topic = 2;
       private int topic_ ;
+      /**
+       * <code>required int32 topic = 2;</code>
+       */
       public boolean hasTopic() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
+      /**
+       * <code>required int32 topic = 2;</code>
+       */
       public int getTopic() {
         return topic_;
       }
+      /**
+       * <code>required int32 topic = 2;</code>
+       */
       public Builder setTopic(int value) {
         bitField0_ |= 0x00000002;
         topic_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required int32 topic = 2;</code>
+       */
       public Builder clearTopic() {
         bitField0_ = (bitField0_ & ~0x00000002);
         topic_ = 0;
         onChanged();
         return this;
       }
-      
+
       // required double score = 3;
       private double score_ ;
+      /**
+       * <code>required double score = 3;</code>
+       */
       public boolean hasScore() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
+      /**
+       * <code>required double score = 3;</code>
+       */
       public double getScore() {
         return score_;
       }
+      /**
+       * <code>required double score = 3;</code>
+       */
       public Builder setScore(double value) {
         bitField0_ |= 0x00000004;
         score_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required double score = 3;</code>
+       */
       public Builder clearScore() {
         bitField0_ = (bitField0_ & ~0x00000004);
         score_ = 0D;
         onChanged();
         return this;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:aminer.Influence)
     }
-    
+
     static {
       defaultInstance = new Influence(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:aminer.Influence)
   }
-  
+
   public interface InfluenceSearchResponseOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // required int32 entity_id = 1;
+    /**
+     * <code>required int32 entity_id = 1;</code>
+     */
     boolean hasEntityId();
+    /**
+     * <code>required int32 entity_id = 1;</code>
+     */
     int getEntityId();
-    
+
     // repeated .aminer.Influence influence = 2;
+    /**
+     * <code>repeated .aminer.Influence influence = 2;</code>
+     */
     java.util.List<org.iminer.services.datacenter.Mashaler.Influence> 
         getInfluenceList();
+    /**
+     * <code>repeated .aminer.Influence influence = 2;</code>
+     */
     org.iminer.services.datacenter.Mashaler.Influence getInfluence(int index);
+    /**
+     * <code>repeated .aminer.Influence influence = 2;</code>
+     */
     int getInfluenceCount();
+    /**
+     * <code>repeated .aminer.Influence influence = 2;</code>
+     */
     java.util.List<? extends org.iminer.services.datacenter.Mashaler.InfluenceOrBuilder> 
         getInfluenceOrBuilderList();
+    /**
+     * <code>repeated .aminer.Influence influence = 2;</code>
+     */
     org.iminer.services.datacenter.Mashaler.InfluenceOrBuilder getInfluenceOrBuilder(
         int index);
-    
+
     // repeated .aminer.Influence influenced_by = 3;
+    /**
+     * <code>repeated .aminer.Influence influenced_by = 3;</code>
+     */
     java.util.List<org.iminer.services.datacenter.Mashaler.Influence> 
         getInfluencedByList();
+    /**
+     * <code>repeated .aminer.Influence influenced_by = 3;</code>
+     */
     org.iminer.services.datacenter.Mashaler.Influence getInfluencedBy(int index);
+    /**
+     * <code>repeated .aminer.Influence influenced_by = 3;</code>
+     */
     int getInfluencedByCount();
+    /**
+     * <code>repeated .aminer.Influence influenced_by = 3;</code>
+     */
     java.util.List<? extends org.iminer.services.datacenter.Mashaler.InfluenceOrBuilder> 
         getInfluencedByOrBuilderList();
+    /**
+     * <code>repeated .aminer.Influence influenced_by = 3;</code>
+     */
     org.iminer.services.datacenter.Mashaler.InfluenceOrBuilder getInfluencedByOrBuilder(
         int index);
   }
+  /**
+   * Protobuf type {@code aminer.InfluenceSearchResponse}
+   */
   public static final class InfluenceSearchResponse extends
       com.google.protobuf.GeneratedMessage
       implements InfluenceSearchResponseOrBuilder {
     // Use InfluenceSearchResponse.newBuilder() to construct.
-    private InfluenceSearchResponse(Builder builder) {
+    private InfluenceSearchResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private InfluenceSearchResponse(boolean noInit) {}
-    
+    private InfluenceSearchResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final InfluenceSearchResponse defaultInstance;
     public static InfluenceSearchResponse getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public InfluenceSearchResponse getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private InfluenceSearchResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              entityId_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                influence_ = new java.util.ArrayList<org.iminer.services.datacenter.Mashaler.Influence>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              influence_.add(input.readMessage(org.iminer.services.datacenter.Mashaler.Influence.PARSER, extensionRegistry));
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                influencedBy_ = new java.util.ArrayList<org.iminer.services.datacenter.Mashaler.Influence>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              influencedBy_.add(input.readMessage(org.iminer.services.datacenter.Mashaler.Influence.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          influence_ = java.util.Collections.unmodifiableList(influence_);
+        }
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          influencedBy_ = java.util.Collections.unmodifiableList(influencedBy_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return org.iminer.services.datacenter.Mashaler.internal_static_aminer_InfluenceSearchResponse_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.iminer.services.datacenter.Mashaler.internal_static_aminer_InfluenceSearchResponse_fieldAccessorTable;
+      return org.iminer.services.datacenter.Mashaler.internal_static_aminer_InfluenceSearchResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse.class, org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<InfluenceSearchResponse> PARSER =
+        new com.google.protobuf.AbstractParser<InfluenceSearchResponse>() {
+      public InfluenceSearchResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new InfluenceSearchResponse(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<InfluenceSearchResponse> getParserForType() {
+      return PARSER;
+    }
+
     private int bitField0_;
     // required int32 entity_id = 1;
     public static final int ENTITY_ID_FIELD_NUMBER = 1;
     private int entityId_;
+    /**
+     * <code>required int32 entity_id = 1;</code>
+     */
     public boolean hasEntityId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
+    /**
+     * <code>required int32 entity_id = 1;</code>
+     */
     public int getEntityId() {
       return entityId_;
     }
-    
+
     // repeated .aminer.Influence influence = 2;
     public static final int INFLUENCE_FIELD_NUMBER = 2;
     private java.util.List<org.iminer.services.datacenter.Mashaler.Influence> influence_;
+    /**
+     * <code>repeated .aminer.Influence influence = 2;</code>
+     */
     public java.util.List<org.iminer.services.datacenter.Mashaler.Influence> getInfluenceList() {
       return influence_;
     }
+    /**
+     * <code>repeated .aminer.Influence influence = 2;</code>
+     */
     public java.util.List<? extends org.iminer.services.datacenter.Mashaler.InfluenceOrBuilder> 
         getInfluenceOrBuilderList() {
       return influence_;
     }
+    /**
+     * <code>repeated .aminer.Influence influence = 2;</code>
+     */
     public int getInfluenceCount() {
       return influence_.size();
     }
+    /**
+     * <code>repeated .aminer.Influence influence = 2;</code>
+     */
     public org.iminer.services.datacenter.Mashaler.Influence getInfluence(int index) {
       return influence_.get(index);
     }
+    /**
+     * <code>repeated .aminer.Influence influence = 2;</code>
+     */
     public org.iminer.services.datacenter.Mashaler.InfluenceOrBuilder getInfluenceOrBuilder(
         int index) {
       return influence_.get(index);
     }
-    
+
     // repeated .aminer.Influence influenced_by = 3;
     public static final int INFLUENCED_BY_FIELD_NUMBER = 3;
     private java.util.List<org.iminer.services.datacenter.Mashaler.Influence> influencedBy_;
+    /**
+     * <code>repeated .aminer.Influence influenced_by = 3;</code>
+     */
     public java.util.List<org.iminer.services.datacenter.Mashaler.Influence> getInfluencedByList() {
       return influencedBy_;
     }
+    /**
+     * <code>repeated .aminer.Influence influenced_by = 3;</code>
+     */
     public java.util.List<? extends org.iminer.services.datacenter.Mashaler.InfluenceOrBuilder> 
         getInfluencedByOrBuilderList() {
       return influencedBy_;
     }
+    /**
+     * <code>repeated .aminer.Influence influenced_by = 3;</code>
+     */
     public int getInfluencedByCount() {
       return influencedBy_.size();
     }
+    /**
+     * <code>repeated .aminer.Influence influenced_by = 3;</code>
+     */
     public org.iminer.services.datacenter.Mashaler.Influence getInfluencedBy(int index) {
       return influencedBy_.get(index);
     }
+    /**
+     * <code>repeated .aminer.Influence influenced_by = 3;</code>
+     */
     public org.iminer.services.datacenter.Mashaler.InfluenceOrBuilder getInfluencedByOrBuilder(
         int index) {
       return influencedBy_.get(index);
     }
-    
+
     private void initFields() {
       entityId_ = 0;
       influence_ = java.util.Collections.emptyList();
@@ -4607,7 +6145,7 @@ public final class Mashaler {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       if (!hasEntityId()) {
         memoizedIsInitialized = 0;
         return false;
@@ -4627,7 +6165,7 @@ public final class Mashaler {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -4642,12 +6180,12 @@ public final class Mashaler {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -4665,94 +6203,83 @@ public final class Mashaler {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code aminer.InfluenceSearchResponse}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements org.iminer.services.datacenter.Mashaler.InfluenceSearchResponseOrBuilder {
@@ -4760,18 +6287,21 @@ public final class Mashaler {
           getDescriptor() {
         return org.iminer.services.datacenter.Mashaler.internal_static_aminer_InfluenceSearchResponse_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_InfluenceSearchResponse_fieldAccessorTable;
+        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_InfluenceSearchResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse.class, org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse.Builder.class);
       }
-      
+
       // Construct using org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -4784,7 +6314,7 @@ public final class Mashaler {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         entityId_ = 0;
@@ -4803,20 +6333,20 @@ public final class Mashaler {
         }
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse.getDescriptor();
+        return org.iminer.services.datacenter.Mashaler.internal_static_aminer_InfluenceSearchResponse_descriptor;
       }
-      
+
       public org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse getDefaultInstanceForType() {
         return org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse.getDefaultInstance();
       }
-      
+
       public org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse build() {
         org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -4824,17 +6354,7 @@ public final class Mashaler {
         }
         return result;
       }
-      
-      private org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse buildPartial() {
         org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse result = new org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse(this);
         int from_bitField0_ = bitField0_;
@@ -4865,7 +6385,7 @@ public final class Mashaler {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse) {
           return mergeFrom((org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse)other);
@@ -4874,7 +6394,7 @@ public final class Mashaler {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse other) {
         if (other == org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse.getDefaultInstance()) return this;
         if (other.hasEntityId()) {
@@ -4935,7 +6455,7 @@ public final class Mashaler {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (!hasEntityId()) {
           
@@ -4955,74 +6475,59 @@ public final class Mashaler {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              entityId_ = input.readInt32();
-              break;
-            }
-            case 18: {
-              org.iminer.services.datacenter.Mashaler.Influence.Builder subBuilder = org.iminer.services.datacenter.Mashaler.Influence.newBuilder();
-              input.readMessage(subBuilder, extensionRegistry);
-              addInfluence(subBuilder.buildPartial());
-              break;
-            }
-            case 26: {
-              org.iminer.services.datacenter.Mashaler.Influence.Builder subBuilder = org.iminer.services.datacenter.Mashaler.Influence.newBuilder();
-              input.readMessage(subBuilder, extensionRegistry);
-              addInfluencedBy(subBuilder.buildPartial());
-              break;
-            }
+        org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // required int32 entity_id = 1;
       private int entityId_ ;
+      /**
+       * <code>required int32 entity_id = 1;</code>
+       */
       public boolean hasEntityId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
+      /**
+       * <code>required int32 entity_id = 1;</code>
+       */
       public int getEntityId() {
         return entityId_;
       }
+      /**
+       * <code>required int32 entity_id = 1;</code>
+       */
       public Builder setEntityId(int value) {
         bitField0_ |= 0x00000001;
         entityId_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required int32 entity_id = 1;</code>
+       */
       public Builder clearEntityId() {
         bitField0_ = (bitField0_ & ~0x00000001);
         entityId_ = 0;
         onChanged();
         return this;
       }
-      
+
       // repeated .aminer.Influence influence = 2;
       private java.util.List<org.iminer.services.datacenter.Mashaler.Influence> influence_ =
         java.util.Collections.emptyList();
@@ -5032,10 +6537,13 @@ public final class Mashaler {
           bitField0_ |= 0x00000002;
          }
       }
-      
+
       private com.google.protobuf.RepeatedFieldBuilder<
           org.iminer.services.datacenter.Mashaler.Influence, org.iminer.services.datacenter.Mashaler.Influence.Builder, org.iminer.services.datacenter.Mashaler.InfluenceOrBuilder> influenceBuilder_;
-      
+
+      /**
+       * <code>repeated .aminer.Influence influence = 2;</code>
+       */
       public java.util.List<org.iminer.services.datacenter.Mashaler.Influence> getInfluenceList() {
         if (influenceBuilder_ == null) {
           return java.util.Collections.unmodifiableList(influence_);
@@ -5043,6 +6551,9 @@ public final class Mashaler {
           return influenceBuilder_.getMessageList();
         }
       }
+      /**
+       * <code>repeated .aminer.Influence influence = 2;</code>
+       */
       public int getInfluenceCount() {
         if (influenceBuilder_ == null) {
           return influence_.size();
@@ -5050,6 +6561,9 @@ public final class Mashaler {
           return influenceBuilder_.getCount();
         }
       }
+      /**
+       * <code>repeated .aminer.Influence influence = 2;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.Influence getInfluence(int index) {
         if (influenceBuilder_ == null) {
           return influence_.get(index);
@@ -5057,6 +6571,9 @@ public final class Mashaler {
           return influenceBuilder_.getMessage(index);
         }
       }
+      /**
+       * <code>repeated .aminer.Influence influence = 2;</code>
+       */
       public Builder setInfluence(
           int index, org.iminer.services.datacenter.Mashaler.Influence value) {
         if (influenceBuilder_ == null) {
@@ -5071,6 +6588,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Influence influence = 2;</code>
+       */
       public Builder setInfluence(
           int index, org.iminer.services.datacenter.Mashaler.Influence.Builder builderForValue) {
         if (influenceBuilder_ == null) {
@@ -5082,6 +6602,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Influence influence = 2;</code>
+       */
       public Builder addInfluence(org.iminer.services.datacenter.Mashaler.Influence value) {
         if (influenceBuilder_ == null) {
           if (value == null) {
@@ -5095,6 +6618,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Influence influence = 2;</code>
+       */
       public Builder addInfluence(
           int index, org.iminer.services.datacenter.Mashaler.Influence value) {
         if (influenceBuilder_ == null) {
@@ -5109,6 +6635,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Influence influence = 2;</code>
+       */
       public Builder addInfluence(
           org.iminer.services.datacenter.Mashaler.Influence.Builder builderForValue) {
         if (influenceBuilder_ == null) {
@@ -5120,6 +6649,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Influence influence = 2;</code>
+       */
       public Builder addInfluence(
           int index, org.iminer.services.datacenter.Mashaler.Influence.Builder builderForValue) {
         if (influenceBuilder_ == null) {
@@ -5131,6 +6663,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Influence influence = 2;</code>
+       */
       public Builder addAllInfluence(
           java.lang.Iterable<? extends org.iminer.services.datacenter.Mashaler.Influence> values) {
         if (influenceBuilder_ == null) {
@@ -5142,6 +6677,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Influence influence = 2;</code>
+       */
       public Builder clearInfluence() {
         if (influenceBuilder_ == null) {
           influence_ = java.util.Collections.emptyList();
@@ -5152,6 +6690,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Influence influence = 2;</code>
+       */
       public Builder removeInfluence(int index) {
         if (influenceBuilder_ == null) {
           ensureInfluenceIsMutable();
@@ -5162,10 +6703,16 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Influence influence = 2;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.Influence.Builder getInfluenceBuilder(
           int index) {
         return getInfluenceFieldBuilder().getBuilder(index);
       }
+      /**
+       * <code>repeated .aminer.Influence influence = 2;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.InfluenceOrBuilder getInfluenceOrBuilder(
           int index) {
         if (influenceBuilder_ == null) {
@@ -5173,6 +6720,9 @@ public final class Mashaler {
           return influenceBuilder_.getMessageOrBuilder(index);
         }
       }
+      /**
+       * <code>repeated .aminer.Influence influence = 2;</code>
+       */
       public java.util.List<? extends org.iminer.services.datacenter.Mashaler.InfluenceOrBuilder> 
            getInfluenceOrBuilderList() {
         if (influenceBuilder_ != null) {
@@ -5181,15 +6731,24 @@ public final class Mashaler {
           return java.util.Collections.unmodifiableList(influence_);
         }
       }
+      /**
+       * <code>repeated .aminer.Influence influence = 2;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.Influence.Builder addInfluenceBuilder() {
         return getInfluenceFieldBuilder().addBuilder(
             org.iminer.services.datacenter.Mashaler.Influence.getDefaultInstance());
       }
+      /**
+       * <code>repeated .aminer.Influence influence = 2;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.Influence.Builder addInfluenceBuilder(
           int index) {
         return getInfluenceFieldBuilder().addBuilder(
             index, org.iminer.services.datacenter.Mashaler.Influence.getDefaultInstance());
       }
+      /**
+       * <code>repeated .aminer.Influence influence = 2;</code>
+       */
       public java.util.List<org.iminer.services.datacenter.Mashaler.Influence.Builder> 
            getInfluenceBuilderList() {
         return getInfluenceFieldBuilder().getBuilderList();
@@ -5208,7 +6767,7 @@ public final class Mashaler {
         }
         return influenceBuilder_;
       }
-      
+
       // repeated .aminer.Influence influenced_by = 3;
       private java.util.List<org.iminer.services.datacenter.Mashaler.Influence> influencedBy_ =
         java.util.Collections.emptyList();
@@ -5218,10 +6777,13 @@ public final class Mashaler {
           bitField0_ |= 0x00000004;
          }
       }
-      
+
       private com.google.protobuf.RepeatedFieldBuilder<
           org.iminer.services.datacenter.Mashaler.Influence, org.iminer.services.datacenter.Mashaler.Influence.Builder, org.iminer.services.datacenter.Mashaler.InfluenceOrBuilder> influencedByBuilder_;
-      
+
+      /**
+       * <code>repeated .aminer.Influence influenced_by = 3;</code>
+       */
       public java.util.List<org.iminer.services.datacenter.Mashaler.Influence> getInfluencedByList() {
         if (influencedByBuilder_ == null) {
           return java.util.Collections.unmodifiableList(influencedBy_);
@@ -5229,6 +6791,9 @@ public final class Mashaler {
           return influencedByBuilder_.getMessageList();
         }
       }
+      /**
+       * <code>repeated .aminer.Influence influenced_by = 3;</code>
+       */
       public int getInfluencedByCount() {
         if (influencedByBuilder_ == null) {
           return influencedBy_.size();
@@ -5236,6 +6801,9 @@ public final class Mashaler {
           return influencedByBuilder_.getCount();
         }
       }
+      /**
+       * <code>repeated .aminer.Influence influenced_by = 3;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.Influence getInfluencedBy(int index) {
         if (influencedByBuilder_ == null) {
           return influencedBy_.get(index);
@@ -5243,6 +6811,9 @@ public final class Mashaler {
           return influencedByBuilder_.getMessage(index);
         }
       }
+      /**
+       * <code>repeated .aminer.Influence influenced_by = 3;</code>
+       */
       public Builder setInfluencedBy(
           int index, org.iminer.services.datacenter.Mashaler.Influence value) {
         if (influencedByBuilder_ == null) {
@@ -5257,6 +6828,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Influence influenced_by = 3;</code>
+       */
       public Builder setInfluencedBy(
           int index, org.iminer.services.datacenter.Mashaler.Influence.Builder builderForValue) {
         if (influencedByBuilder_ == null) {
@@ -5268,6 +6842,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Influence influenced_by = 3;</code>
+       */
       public Builder addInfluencedBy(org.iminer.services.datacenter.Mashaler.Influence value) {
         if (influencedByBuilder_ == null) {
           if (value == null) {
@@ -5281,6 +6858,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Influence influenced_by = 3;</code>
+       */
       public Builder addInfluencedBy(
           int index, org.iminer.services.datacenter.Mashaler.Influence value) {
         if (influencedByBuilder_ == null) {
@@ -5295,6 +6875,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Influence influenced_by = 3;</code>
+       */
       public Builder addInfluencedBy(
           org.iminer.services.datacenter.Mashaler.Influence.Builder builderForValue) {
         if (influencedByBuilder_ == null) {
@@ -5306,6 +6889,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Influence influenced_by = 3;</code>
+       */
       public Builder addInfluencedBy(
           int index, org.iminer.services.datacenter.Mashaler.Influence.Builder builderForValue) {
         if (influencedByBuilder_ == null) {
@@ -5317,6 +6903,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Influence influenced_by = 3;</code>
+       */
       public Builder addAllInfluencedBy(
           java.lang.Iterable<? extends org.iminer.services.datacenter.Mashaler.Influence> values) {
         if (influencedByBuilder_ == null) {
@@ -5328,6 +6917,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Influence influenced_by = 3;</code>
+       */
       public Builder clearInfluencedBy() {
         if (influencedByBuilder_ == null) {
           influencedBy_ = java.util.Collections.emptyList();
@@ -5338,6 +6930,9 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Influence influenced_by = 3;</code>
+       */
       public Builder removeInfluencedBy(int index) {
         if (influencedByBuilder_ == null) {
           ensureInfluencedByIsMutable();
@@ -5348,10 +6943,16 @@ public final class Mashaler {
         }
         return this;
       }
+      /**
+       * <code>repeated .aminer.Influence influenced_by = 3;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.Influence.Builder getInfluencedByBuilder(
           int index) {
         return getInfluencedByFieldBuilder().getBuilder(index);
       }
+      /**
+       * <code>repeated .aminer.Influence influenced_by = 3;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.InfluenceOrBuilder getInfluencedByOrBuilder(
           int index) {
         if (influencedByBuilder_ == null) {
@@ -5359,6 +6960,9 @@ public final class Mashaler {
           return influencedByBuilder_.getMessageOrBuilder(index);
         }
       }
+      /**
+       * <code>repeated .aminer.Influence influenced_by = 3;</code>
+       */
       public java.util.List<? extends org.iminer.services.datacenter.Mashaler.InfluenceOrBuilder> 
            getInfluencedByOrBuilderList() {
         if (influencedByBuilder_ != null) {
@@ -5367,15 +6971,24 @@ public final class Mashaler {
           return java.util.Collections.unmodifiableList(influencedBy_);
         }
       }
+      /**
+       * <code>repeated .aminer.Influence influenced_by = 3;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.Influence.Builder addInfluencedByBuilder() {
         return getInfluencedByFieldBuilder().addBuilder(
             org.iminer.services.datacenter.Mashaler.Influence.getDefaultInstance());
       }
+      /**
+       * <code>repeated .aminer.Influence influenced_by = 3;</code>
+       */
       public org.iminer.services.datacenter.Mashaler.Influence.Builder addInfluencedByBuilder(
           int index) {
         return getInfluencedByFieldBuilder().addBuilder(
             index, org.iminer.services.datacenter.Mashaler.Influence.getDefaultInstance());
       }
+      /**
+       * <code>repeated .aminer.Influence influenced_by = 3;</code>
+       */
       public java.util.List<org.iminer.services.datacenter.Mashaler.Influence.Builder> 
            getInfluencedByBuilderList() {
         return getInfluencedByFieldBuilder().getBuilderList();
@@ -5394,18 +7007,18 @@ public final class Mashaler {
         }
         return influencedByBuilder_;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:aminer.InfluenceSearchResponse)
     }
-    
+
     static {
       defaultInstance = new InfluenceSearchResponse(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:aminer.InfluenceSearchResponse)
   }
-  
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_aminer_EntitySearchRequest_descriptor;
   private static
@@ -5446,7 +7059,7 @@ public final class Mashaler {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_aminer_InfluenceSearchResponse_fieldAccessorTable;
-  
+
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
@@ -5485,65 +7098,49 @@ public final class Mashaler {
           internal_static_aminer_EntitySearchRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_aminer_EntitySearchRequest_descriptor,
-              new java.lang.String[] { "Query", "Offset", "Count", },
-              org.iminer.services.datacenter.Mashaler.EntitySearchRequest.class,
-              org.iminer.services.datacenter.Mashaler.EntitySearchRequest.Builder.class);
+              new java.lang.String[] { "Query", "Offset", "Count", });
           internal_static_aminer_EntityDetailRequest_descriptor =
             getDescriptor().getMessageTypes().get(1);
           internal_static_aminer_EntityDetailRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_aminer_EntityDetailRequest_descriptor,
-              new java.lang.String[] { "Id", },
-              org.iminer.services.datacenter.Mashaler.EntityDetailRequest.class,
-              org.iminer.services.datacenter.Mashaler.EntityDetailRequest.Builder.class);
+              new java.lang.String[] { "Id", });
           internal_static_aminer_Stat_descriptor =
             getDescriptor().getMessageTypes().get(2);
           internal_static_aminer_Stat_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_aminer_Stat_descriptor,
-              new java.lang.String[] { "Type", "Value", },
-              org.iminer.services.datacenter.Mashaler.Stat.class,
-              org.iminer.services.datacenter.Mashaler.Stat.Builder.class);
+              new java.lang.String[] { "Type", "Value", });
           internal_static_aminer_RelatedEntity_descriptor =
             getDescriptor().getMessageTypes().get(3);
           internal_static_aminer_RelatedEntity_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_aminer_RelatedEntity_descriptor,
-              new java.lang.String[] { "Type", "Id", },
-              org.iminer.services.datacenter.Mashaler.RelatedEntity.class,
-              org.iminer.services.datacenter.Mashaler.RelatedEntity.Builder.class);
+              new java.lang.String[] { "Type", "Id", });
           internal_static_aminer_DetailedEntity_descriptor =
             getDescriptor().getMessageTypes().get(4);
           internal_static_aminer_DetailedEntity_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_aminer_DetailedEntity_descriptor,
-              new java.lang.String[] { "Title", "Id", "Url", "Description", "Stat", "Topics", "Imgurl", "OriginalId", "RelatedEntity", },
-              org.iminer.services.datacenter.Mashaler.DetailedEntity.class,
-              org.iminer.services.datacenter.Mashaler.DetailedEntity.Builder.class);
+              new java.lang.String[] { "Title", "Id", "Url", "Description", "Stat", "Topics", "Imgurl", "OriginalId", "RelatedEntity", });
           internal_static_aminer_EntitySearchResponse_descriptor =
             getDescriptor().getMessageTypes().get(5);
           internal_static_aminer_EntitySearchResponse_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_aminer_EntitySearchResponse_descriptor,
-              new java.lang.String[] { "Query", "TotalCount", "Entity", },
-              org.iminer.services.datacenter.Mashaler.EntitySearchResponse.class,
-              org.iminer.services.datacenter.Mashaler.EntitySearchResponse.Builder.class);
+              new java.lang.String[] { "Query", "TotalCount", "Entity", });
           internal_static_aminer_Influence_descriptor =
             getDescriptor().getMessageTypes().get(6);
           internal_static_aminer_Influence_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_aminer_Influence_descriptor,
-              new java.lang.String[] { "Id", "Topic", "Score", },
-              org.iminer.services.datacenter.Mashaler.Influence.class,
-              org.iminer.services.datacenter.Mashaler.Influence.Builder.class);
+              new java.lang.String[] { "Id", "Topic", "Score", });
           internal_static_aminer_InfluenceSearchResponse_descriptor =
             getDescriptor().getMessageTypes().get(7);
           internal_static_aminer_InfluenceSearchResponse_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_aminer_InfluenceSearchResponse_descriptor,
-              new java.lang.String[] { "EntityId", "Influence", "InfluencedBy", },
-              org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse.class,
-              org.iminer.services.datacenter.Mashaler.InfluenceSearchResponse.Builder.class);
+              new java.lang.String[] { "EntityId", "Influence", "InfluencedBy", });
           return null;
         }
       };
@@ -5552,6 +7149,6 @@ public final class Mashaler {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
   }
-  
+
   // @@protoc_insertion_point(outer_class_scope)
 }

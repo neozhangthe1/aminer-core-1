@@ -1,0 +1,15 @@
+package zrpc;
+
+option java_outer_classname = "ArnetMinerRpc";
+option java_package = "org.iminer.services.datacenter.rpc";
+
+message Request {
+	required string method = 1;
+	optional bytes param = 2;
+}
+
+message Response {
+	optional int32 time_elapsed = 1;
+	optional bytes data = 2;
+	optional int32 response_code = 3;
+}

@@ -39,9 +39,54 @@ struct AMinerService : public SearchServiceBase {
         return true;
     }
 
+    // reimplemented datacenter services
     SERVICE(AuthorService_searchAuthors, EntitySearchRequest, EntitySearchResponse) {
         auto searcher = EntitySearcher(ig.get());
         auto results = searcher.search(WeightedType{{"Author", 1.0}}, WeightedType{{"Author", 1.0}, {"Publication", 1.0}}, request.query());
+        fillSearchResponse(request, response, results);
+        return true;
+    }
+
+    //TODO
+    SERVICE(AuthorService_authorSearchSuggest, EntitySearchRequest, EntitySearchResponse) {
+        auto searcher = EntitySearcher(ig.get());
+        auto results = searcher.search(WeightedType{{"Author", 1.0}}, WeightedType{{"Author", 1.0}, {"Publication", 1.0}}, request.query());
+        fillSearchResponse(request, response, results);
+        return true;
+    }
+
+    SERVICE(AuthorService_getEntityById, EntitySearchRequest, EntitySearchResponse) {
+        // auto aid = stoi(request.query());
+        // response.set_entity_id(aid);
+
+        // auto vit = ig->g->Vertices();
+        // vit->MoveTo(aid);
+        // fillEntity(response.add_entity(), vi.get());
+        auto searcher = EntitySearcher(ig.get());
+        auto results = searcher.get(WeightedType{{"Author", 1.0}}, WeightedType{{"Author", 1.0}, {"Publication", 1.0}}, request.query());
+        fillSearchResponse(request, response, results);
+        return true;
+    }
+
+    SERVICE(AuthorService_getEntityWithSameNameByName, EntitySearchRequest, EntitySearchResponse) {
+        auto searcher = EntitySearcher(ig.get());
+        auto results = searcher.search(WeightedType{{"Author", 1.0}}, WeightedType{{"Author", 1.0}, {"Publication", 1.0}}, request.query());
+        fillSearchResponse(request, response, results);
+        return true;
+    }
+
+    //PubService
+    SERVICE(PubService_searchPublications, EntitySearchRequest, EntitySearchResponse) {
+        auto searcher = EntitySearcher(ig.get());
+        auto results = searcher.search(WeightedType{{"Publication", 1.0}}, WeightedType{{"Publication", 1.0}}, request.query());
+        fillSearchResponse(request, response, results);
+        return true;
+    }
+
+    //ConfService
+    SERVICE(ConfService_searchConferences, EntitySearchRequest, EntitySearchResponse) {
+        auto searcher = EntitySearcher(ig.get());
+        auto results = searcher.search(WeightedType{{"JConf", 1.0}}, WeightedType{{"Publication", 1.0}}, request.query());
         fillSearchResponse(request, response, results);
         return true;
     }
@@ -154,6 +199,11 @@ static void init(void *sender, void *args) {
     ADD_METHOD(JConfSearch);
     ADD_METHOD(InfluenceSearchByAuthor);
     ADD_METHOD(AuthorService_searchAuthors);
+    ADD_METHOD(AuthorService_getEntityById);
+    ADD_METHOD(AuthorService_getEntityWithSameNameByName);
+    ADD_METHOD(AuthorService_authorSearchSuggest);
+    ADD_METHOD(PubService_searchPublications);
+    ADD_METHOD(ConfService_searchConferences);
     LOG(INFO) << "aminer initialized. ";
 }
 
