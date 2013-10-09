@@ -56,12 +56,6 @@ struct AMinerService : public SearchServiceBase {
     }
 
     SERVICE(AuthorService_getEntityById, EntitySearchRequest, EntitySearchResponse) {
-        // auto aid = stoi(request.query());
-        // response.set_entity_id(aid);
-
-        // auto vit = ig->g->Vertices();
-        // vit->MoveTo(aid);
-        // fillEntity(response.add_entity(), vi.get());
         auto searcher = EntitySearcher(ig.get());
         auto results = searcher.get(WeightedType{{"Author", 1.0}}, WeightedType{{"Author", 1.0}, {"Publication", 1.0}}, request.query());
         fillSearchResponse(request, response, results);
@@ -79,6 +73,14 @@ struct AMinerService : public SearchServiceBase {
     SERVICE(PubService_searchPublications, EntitySearchRequest, EntitySearchResponse) {
         auto searcher = EntitySearcher(ig.get());
         auto results = searcher.search(WeightedType{{"Publication", 1.0}}, WeightedType{{"Publication", 1.0}}, request.query());
+        fillSearchResponse(request, response, results);
+        return true;
+    }
+
+    // TODO
+    SERVICE(PubService_getPublicationsById, EntitySearchRequest, EntitySearchResponse) {
+        auto searcher = EntitySearcher(ig.get());
+        auto results = searcher.get(WeightedType{{"Publication", 1.0}}, WeightedType{{"Author", 1.0}, {"Publication", 1.0}}, request.query());
         fillSearchResponse(request, response, results);
         return true;
     }

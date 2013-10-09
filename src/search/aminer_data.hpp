@@ -7,6 +7,27 @@ struct AMinerData : public IndexedGraph {
         buildIndexFor("Author", authorDocExtractor);
         buildIndexFor("Publication", pubDocExtractor);
         buildIndexFor("JConf", jconfDocExtractor);
+        auto vi = g->Vertices();
+        LOG(INFO) << "building id map";
+        while (vi->Alive()) {
+            auto sae_id = vi->GlobalId();
+
+            if (vi->TypeName() == "Author") {
+                auto d = sae::serialization::convert_from_string<Author>(vi->Data());
+                auto origin_id = d.id;
+                idmap[std::make_pair("Author", origin_id)] = sae_id;
+            } else if (vi->TypeName() == "Publication") {
+                auto d = sae::serialization::convert_from_string<Publication>(vi->Data());
+                auto origin_id = d.id;
+                idmap[std::make_pair("Publication", origin_id)] = sae_id;
+            } else if (vi->TypeName() == "JConf") {
+                auto d = sae::serialization::convert_from_string<JConf>(vi->Data());
+                auto origin_id = d.id;
+                idmap[std::make_pair("JConf", origin_id)] = sae_id;
+            }
+            vi->Next();
+        } 
+        LOG(INFO) << "building id map finished";
     }
 
     static std::map<std::string, std::string> authorDocExtractor(sae::io::VertexIterator* it) {

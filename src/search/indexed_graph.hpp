@@ -143,6 +143,7 @@ struct IndexedGraph {
 
 protected:
     std::map<string, std::vector<indexing::Index>> vertexIndices;
+    std::map<std::pair<string, int>, int> idmap;
     TokenStreamer tokenStream;
 };
 
