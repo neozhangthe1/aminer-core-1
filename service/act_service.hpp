@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include "search_service.hpp"
+#include "event.hpp"
+#include "act_data.hpp"
 
 using std::string;
 

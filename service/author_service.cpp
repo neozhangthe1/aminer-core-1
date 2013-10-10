@@ -82,6 +82,8 @@ struct AuthorService : public SearchServiceBase {
     }
 };
 
+std::unique_ptr<AMinerData> IndexedGraphCache::ig;
+
 #define ADD_METHOD(name) server->addMethod(#name, b(&AuthorService::name))
 
 static void init(void *sender, void *args) {

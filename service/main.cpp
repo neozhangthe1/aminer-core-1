@@ -19,7 +19,10 @@ int main(int argc, char** argv) {
     RpcServer* server = RpcServer::CreateServer(FLAGS_port, FLAGS_threads);
 
     LOG(INFO) << "Setting up services...";
-    event::Trigger("init_service", nullptr, server);
+    event::Trigger("init_authorservice", nullptr, server);
+    event::Trigger("init_pubservice", nullptr, server);
+    event::Trigger("init_jconfservice", nullptr, server);
+    event::Trigger("init_actservice", nullptr, server);
 
     LOG(INFO) << "Trying to bringing our services up...";
     server->run();

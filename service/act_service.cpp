@@ -313,5 +313,22 @@ namespace ACTService
 	}
 }
 
+static void init(void *sender, void *args) {
+    zrpc::RpcServer *server = reinterpret_cast<zrpc::RpcServer *>(args);
+    LOG(INFO) << "loading act data.";
+	ACTadapter* actadapter = ACTadapter::getInstance();
+	server->addMethod(string("ACTService_getParameter"), &ACTService::getParameter);
+	server->addMethod(string("ACTService_getTopicDistributionGivenAuthorNAid"), &ACTService::getTopicDistributionGivenAuthorNAid);
+	server->addMethod(string("ACTService_getTopicDistributionGivenAuthorName"), &ACTService::getTopicDistributionGivenAuthorName);
+	server->addMethod(string("ACTService_getTopicDistributionGivenConfId"), &ACTService::getTopicDistributionGivenConfId);
+	server->addMethod(string("ACTService_getTopicDistributionGivenConfName"), &ACTService::getTopicDistributionGivenConfName);
+	server->addMethod(string("ACTService_getTopicDistributionGivenPub"), &ACTService::getTopicDistributionGivenPub);
+	server->addMethod(string("ACTService_getTopicDistributionGivenQuery"), &ACTService::getTopicDistributionGivenQuery);
+	server->addMethod(string("ACTService_getAuthorDistributionGivenTopic"), &ACTService::getAuthorDistributionGivenTopic);
+	server->addMethod(string("ACTService_getConfDistributionGivenTopic"), &ACTService::getConfDistributionGivenTopic);
+	server->addMethod(string("ACTService_getPubDistributionGivenTopic"), &ACTService::getPubDistributionGivenTopic);
+	server->addMethod(string("ACTService_getWordDistributionGivenTopic"), &ACTService::getWordDistributionGivenTopic);
+    LOG(INFO) << "act service initialized.";
+}
 
-
+REGISTER_EVENT(init_actservice, init);
