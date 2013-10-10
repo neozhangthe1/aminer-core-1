@@ -12,7 +12,6 @@ add_library(servicebase "event.cpp" "event.hpp" ${PROTO_SRCS} ${PROTO_HDRS})
 target_link_libraries(servicebase zrpc gflags google-glog ${PROTOBUF_LIBRARY})
 
 file (GLOB aminer-core_SOURCES
-    "main.cpp"
     "*.hpp"
     "*.cpp"
 )

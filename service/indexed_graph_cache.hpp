@@ -13,9 +13,9 @@ public:
     AMinerData* getGraph(const char* name) {
         if (ig == nullptr) {
             std::unique_ptr<AMinerData> graph(new AMinerData(name));
-            ig = std::move(graph);
+            ig = graph.get();
         }
-        return ig.get();
+        return ig;
     }
 
 private:    
@@ -23,5 +23,5 @@ private:
         ig = nullptr;
     }
 
-    std::unique_ptr<AMinerData> ig;
+    AMinerData* ig;
 };

@@ -6,10 +6,9 @@
 #include "act_service.hpp"
 #include "act_data.hpp"
 #include "entity_searcher.hpp"
+#include "glog/logging.h"
 
-#include "util/Timer.h"
-#include "util/ConfigFile.h"
-#include "util/Logger.h"
+DEFINE_string(actDir, "actData/", "Directory of ACT data");
 
 ACT::ACT()
 	:PRECISION(0.000001),FILEBUFFERSIZE(1024000),STRINGBUFFERSIZE(1024)
@@ -27,30 +26,15 @@ ACT::~ACT()//DONE
 
 void ACT::load()//DONE
 {
-	Timer timer("init");
-	Timer totalTimer("ACT total");
-	totalTimer.start();
-	ConfigFile config;
-	string actDir = "actDir";
-	string path;
-	if(config.keyExists(actDir))
-		config.readInto(path, actDir);
-	timer.start();
+	LOG(INFO) << "Start loading act data..";
+	string path = FLAGS_actDir;
 	_loadOthers(path + "topic.others");
-	timer.stop();
-	LOG(INFO) << boost::str(boost::format("Others done time Used %1%") % timer.getPassedMilliseconds());
-	timer.start();
 	nTopic = parameter.ntopics;
 	if (nTopic == 0)
 	{
 		nTopic = 200;
 	}
 	_init();
-	timer.stop();
-	timer.show();
-
-	timer = Timer("tassign");
-	timer.start();
 	int arraySize = _ACTa2countMap.size();
 	nWords = parameter.nwords;
 	nPublications = parameter.ndocs;
@@ -74,31 +58,16 @@ void ACT::load()//DONE
 	memset(_sumW2Count, 0, sizeof(int)*(nTopic + 1));
 
 	_loadTAssign(path + "topic.tassign");
-	timer.stop();
-	timer.show();
 
-	timer = Timer("authormap");
-	timer.start();
 	_loadAuthorMap(path + "authormap.txt");
-	timer.stop();
-	timer.show();
-	timer = Timer("confmap");
-	timer.start();
+
 	_loadConfMap(path + "confmap.txt");
-	timer.stop();
-	timer.show();
-	timer = Timer("docmap");
-	timer.start();
+
 	_loadDocMap(path + "docmap.txt");
-	timer.stop();
-	timer.show();
-	timer = Timer("wordmap");
-	timer.start();
+
 	_loadWordMap(path + "wordmap.txt");
-	timer.stop();
-	totalTimer.stop();
-	LOG(INFO) << boost::str(boost::format("wordmap done time Used %1%") % timer.getPassedMilliseconds());
-	LOG(INFO) << boost::str(boost::format("ACT Load, Used %1%") % totalTimer.getPassedMilliseconds());
+
+	LOG(INFO) << "Act data loaded..";
 }
 
 void ACT::addACTcount(int tid, int actxid, vector<unordered_map<int, int>>* actMap, int* sumMap )//DONE
@@ -187,12 +156,12 @@ int ACT::getAuthorNaIdByACTaid(int actaid)//DONE
 		name = iter->second;
 
 	auto gc = IndexedGraphCache::instance();
-	auto searcher = EntitySearcher(gc.getGraph());
+	auto searcher = EntitySearcher(gc.getGraph("aminer"));
 	auto sr = searcher.getAuthorByName(name);
 	if (sr.size() > 0)
 	{
-		auto vi = gc.getGraph()->Vertices();
-		vi.MoveTo(sr[0].docId);
+		auto vi = gc.getGraph("aminer")->g->Vertices();
+		vi->MoveTo(sr[0].docId);
 		auto author = sae::serialization::convert_from_string<Author>(vi->Data());
 		return author.id;
 	}
@@ -207,15 +176,16 @@ int ACT::getConfIdByACTcid(int actcid)//DONE
 		confname = iter->second;
 
 	auto gc = IndexedGraphCache::instance();
-	auto searcher = EntitySearcher(gc.getGraph());
+	auto searcher = EntitySearcher(gc.getGraph("aminer"));
 	auto sr = searcher.getJConfByName(confname);
 	if (sr.size() > 0)
 	{
-		auto vi = gc.getGraph()->Vertices();
-		vi.MoveTo(sr[0].docId);
+		auto vi = gc.getGraph("aminer")->g->Vertices();
+		vi->MoveTo(sr[0].docId);
 		auto jconf = sae::serialization::convert_from_string<JConf>(vi->Data());
-		return author->id;
+		return jconf.id;
 	}
+	return -1;
 }
 
 int ACT::getPubIdByACTpid(int actpid)//DONE
@@ -239,7 +209,7 @@ string ACT::getWordByACTwid(int actwid)//DONE
 //Add a cache to speed up
 int ACT::getACTaidByAuthorNaId(int naid)//DONE
 {
-	auto graph = IndexedGraphCache::instance().getGraph();
+	auto graph = IndexedGraphCache::instance().getGraph("aminer");
 	if(act_aid_map.empty())
 	{
 		this->act_aid_map_mutex.lock();
@@ -259,7 +229,7 @@ int ACT::getACTaidByAuthorNaId(int naid)//DONE
 		return act_aid_map[naid];
 	}
 	auto vi = graph->g->Vertices();
-	auto id = graph->idmap(std::make_pair("Author", naid));
+	auto id = graph->idmap.find(std::make_pair("Author", naid))->second;
 	vi->MoveTo(id);
 	auto author = sae::serialization::convert_from_string<Author>(vi->Data());
 	unordered_map<string, int>::iterator iter;
@@ -275,7 +245,7 @@ int ACT::getACTaidByAuthorNaId(int naid)//DONE
 	}
 	//boost::lock_guard<boost::mutex>(this->act_aid_map_mutex);
 	act_aid_map[naid] = actaid;
-	string name = author->names[0];
+	string name = author.names[0];
 	
 	return actaid;
 }
@@ -283,7 +253,7 @@ int ACT::getACTaidByAuthorNaId(int naid)//DONE
 //Add a cache to speed up
 int ACT::getACTcidByConfid(int confid)//DONE
 {
-	auto graph = IndexedGraphCache::instance().getGraph();
+	auto graph = IndexedGraphCache::instance().getGraph("aminer");
 	if(!act_conf_map.size())
 	{
         std::lock_guard<std::mutex> lock(this->act_conf_map_mutex);
@@ -301,7 +271,7 @@ int ACT::getACTcidByConfid(int confid)//DONE
 	}
 
 	auto vi = graph->g->Vertices();
-	auto id = graph->idmap(std::make_pair("JConf", confid));
+	auto id = graph->idmap.find(std::make_pair("JConf", confid))->second;
 	vi->MoveTo(id);
 	auto jconf = sae::serialization::convert_from_string<JConf>(vi->Data());
 	unordered_map<string, int>::iterator iter = _reauthormap.find(jconf.name);
@@ -756,16 +726,17 @@ vector<double> ACTadapter::getTopicDistributionGivenPub(int pubid, Publication c
 	double alpha = _act.parameter.alpha;
 
 	vector<double> result(ntopic, 0.0);
-	auto graph = IndexedGraphCache::instance().getGraph();
+	auto graph = IndexedGraphCache::instance().getGraph("aminer");
 
 	int pid = _act.getACTpidByPubId(pubid);
 	if (pid == -1)
 	{
         if (!pub) {
     		auto vi = graph->g->Vertices();
-			auto id = graph->idmap(std::make_pair("Publication", pubid));
+			auto id = graph->idmap.find(std::make_pair("Publication", pubid))->second;
 			vi->MoveTo(id);
-			pub = &sae::serialization::convert_from_string<Publication>(vi->Data());
+			Publication p = sae::serialization::convert_from_string<Publication>(vi->Data());
+			pub = &p;
         }
 		if (pub)
 			return getTopicDistributionGivenQuery(pub->title);
@@ -789,7 +760,7 @@ vector<double> ACTadapter::getTopicDistributionGivenQuery(string query)//DONE
 	TokenStream* tokenStream = ArnetAnalyzer::tokenStream(query);
 	Token token;
 	vector<string> words;
-	boost::split(words, query, boost::is_any_of(" ,\t\r\n"), boost::token_compress_on);
+	//boost::split(words, query, boost::is_any_of(" ,\t\r\n"), boost::token_compress_on);
 	int ntopic = _act.parameter.ntopics;
 	double alpha = _act.parameter.alpha;
 	double beta = _act.parameter.beta;
@@ -922,14 +893,14 @@ unordered_map<string, double> ACTadapter::getWordDistributionGivenTopic(int tid)
 vector<double> ACTadapter::getTopicDistributionGivenAuthor(string name)//DONE
 {
 	auto gc = IndexedGraphCache::instance();
-	auto searcher = EntitySearcher(gc.getGraph());
+	auto searcher = EntitySearcher(gc.getGraph("aminer"));
 	auto sr = searcher.getAuthorByName(name);
 	int naid = -2;
 
 	if (sr.size() > 0)
 	{
-		auto vi = gc.getGraph()->Vertices();
-		vi.MoveTo(sr[0].docId);
+		auto vi = gc.getGraph("aminer")->g->Vertices();
+		vi->MoveTo(sr[0].docId);
 		auto author = sae::serialization::convert_from_string<Author>(vi->Data());
 		naid = author.id;
 	}
@@ -940,17 +911,17 @@ vector<double> ACTadapter::getTopicDistributionGivenAuthor(string name)//DONE
 vector<double> ACTadapter::getTopicDistributionGivenConf(string confname)//DONE
 {
 	auto gc = IndexedGraphCache::instance();
-	auto searcher = EntitySearcher(gc.getGraph());
+	auto searcher = EntitySearcher(gc.getGraph("aminer"));
 	auto sr = searcher.getJConfByName(confname);
 	if (sr.size() > 0)
 	{
-		auto vi = gc.getGraph()->Vertices();
-		vi.MoveTo(sr[0].docId);
+		auto vi = gc.getGraph("aminer")->g->Vertices();
+		vi->MoveTo(sr[0].docId);
 		auto jconf = sae::serialization::convert_from_string<JConf>(vi->Data());
 		int confid = jconf.id;
 		return getTopicDistributionGivenConf(confid);
 	}
-	return NULL;
+	return std::vector<double>{};
 }
 
 ACTadapter::ACTadapter()//DONE
@@ -1008,15 +979,15 @@ bool ACTadapter::getTopTopicGivenPub(vector<pair<int, double>>& result, int pub_
 	int pid = _act.getACTpidByPubId(pub_id);
 	if(pid==-1)
 	{
-		auto graph = IndexedGraphCache::instance().getGraph();
+		auto graph = IndexedGraphCache::instance().getGraph("aminer");
 		auto vi = graph->g->Vertices();
-		auto id = graph->idmap(std::make_pair("Publication", pub_id));
+		auto id = graph->idmap.find(std::make_pair("Publication", pub_id))->second;
 		vi->MoveTo(id);
 		auto pub = sae::serialization::convert_from_string<Publication>(vi->Data());
 		vector<double> temp=getTopicDistributionGivenQuery(pub.title);
 		for(int i=0;i<ntopic;++i)
 		{
-			distribution.push_back(make_pair(i, temp[i]));
+			distribution.push_back(std::make_pair(i, temp[i]));
 		}	
 	}
 	else
@@ -1027,7 +998,7 @@ bool ACTadapter::getTopTopicGivenPub(vector<pair<int, double>>& result, int pub_
 			double dividend = _act.getACTcount(tid, pid, 'p') + alpha;
 			if (abs(dividend) >= _act.PRECISION)
 			{
-				distribution.push_back(make_pair(tid, dividend / divisor));
+				distribution.push_back(std::make_pair(tid, dividend / divisor));
 			}
 		}
 	}
@@ -1056,7 +1027,7 @@ bool ACTadapter::getTopTopicGivenConf(vector<pair<int, double>>& result, int con
 			double dividend = _act.getACTcount(tid, cid, 'c') + alpha;
 			if (abs(dividend) >= _act.PRECISION)
 			{
-				distribution.push_back(make_pair(tid, dividend / divisor));
+				distribution.push_back(std::make_pair(tid, dividend / divisor));
 			}
 		}
 	}	
@@ -1085,7 +1056,7 @@ bool ACTadapter::getTopTopic(vector<pair<int, double>>& result, vector<pair<int,
 	{
 		if(distribution[i].second>TOPIC_THRESHOLD)
 		{
-			result.push_back(make_pair(distribution[i].first, distribution[i].second/sum));
+			result.push_back(std::make_pair(distribution[i].first, distribution[i].second/sum));
 		}
 	}
 	return true;

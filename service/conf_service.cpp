@@ -7,23 +7,10 @@
 #include "indexed_graph_cache.hpp"
 
 using namespace std;
-using namespace aminer;
+using namespace mashaler;
 using namespace indexing;
 using namespace sae::io;
 using namespace zrpc;
-
-namespace {
-    string join(const string& sep, const vector<string>& values) {
-        std::stringstream ss;
-        for(size_t i = 0; i < values.size(); ++i)
-        {
-            if(i != 0)
-                ss << sep;
-            ss << values[i];
-        }
-        return ss.str();
-    }
-}
 
 struct JConfService : public SearchServiceBase {
     JConfService(IndexedGraph* ig) : SearchServiceBase(ig) {
@@ -34,14 +21,6 @@ struct JConfService : public SearchServiceBase {
         auto results = searcher.search(WeightedType{{"JConf", 1.0}}, WeightedType{{"Publication", 1.0}}, request.query());
         fillSearchResponse(request, response, results);
         return true;
-    }
-
-protected:
-    void fillEntity(DetailedEntity* de, VertexIterator* vi) {
-        de->set_id(vi->GlobalId());
-        auto jc = parse<JConf>(vi->Data());
-        de->set_title(jc.name);
-        de->set_original_id(jc.id);
     }
 };
 

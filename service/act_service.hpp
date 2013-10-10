@@ -1,6 +1,7 @@
 #pragma once
-#include "util/Logger.h"
-#include<string>
+#include <string>
+#include "search_service.hpp"
+
 using std::string;
 
 namespace ACTService

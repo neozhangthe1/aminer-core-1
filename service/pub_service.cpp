@@ -7,23 +7,10 @@
 #include "indexed_graph_cache.hpp"
 
 using namespace std;
-using namespace aminer;
+using namespace mashaler;
 using namespace indexing;
 using namespace sae::io;
 using namespace zrpc;
-
-namespace {
-    string join(const string& sep, const vector<string>& values) {
-        std::stringstream ss;
-        for(size_t i = 0; i < values.size(); ++i)
-        {
-            if(i != 0)
-                ss << sep;
-            ss << values[i];
-        }
-        return ss.str();
-    }
-}
 
 struct PubService : public SearchServiceBase {
     PubService(IndexedGraph* ig) : SearchServiceBase(ig) {
@@ -34,33 +21,6 @@ struct PubService : public SearchServiceBase {
         auto results = searcher.search(WeightedType{{"Publication", 1.0}}, WeightedType{{"Publication", 1.0}}, request.query());
         fillSearchResponse(request, response, results);
         return true;
-    }
-
-protected:
-    void fillEntity(DetailedEntity* de, VertexIterator* vi) {
-        de->set_id(vi->GlobalId());
-        auto pub = parse<Publication>(vi->Data());
-        de->set_original_id(pub.id);
-        de->set_title(pub.title);
-        de->set_description(pub.abstract);
-        de->set_topics(join(",", pub.topics));
-        auto stat = de->add_stat();
-        stat->set_type("year");
-        stat->set_value(pub.year);
-        stat = de->add_stat();
-        stat->set_type("jconf");
-        stat->set_value(pub.jconf);
-        stat = de->add_stat();
-        stat->set_type("citation");
-        stat->set_value(pub.citation_number);
-
-        auto re = de->add_related_entity();
-        re->set_type("Author");
-        for (auto ei = vi->InEdges(); ei->Alive(); ei->Next()) {
-            if (ei->TypeName() == "Publish") {
-                re->add_id(ei->SourceId());
-            }
-        }
     }
 };
 

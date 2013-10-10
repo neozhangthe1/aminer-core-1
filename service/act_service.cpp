@@ -1,9 +1,6 @@
-#include "act_service.h"
-#include "adapter/act_adapter.h"
-#include "IndexResource.h"
+#include "act_service.hpp"
+#include "act_data.hpp"
 #include "interface.pb.h"
-#include "InterfaceUtils.h"
-#include "Logger.h"
 
 /*
 *Wrapper of ACTadapter
@@ -71,7 +68,7 @@ namespace ACTService
 	{
 		int naid = atoi(input.c_str());
 		
-		LOG(INFO) << boost::str(boost::format("[naid] %d") % naid);
+		//LOG(INFO) << boost::str(boost::format("[naid] %d") % naid);
 
 		mashaler::Distribution result;
 
@@ -93,7 +90,7 @@ namespace ACTService
 	{
 		mashaler::Distribution result;
 
-		LOG(INFO) << boost::str(boost::format("[athor_name] %s") % input);
+		//LOG(INFO) << boost::str(boost::format("[athor_name] %s") % input);
 
 		ACTadapter* actadapter = ACTadapter::getInstance();
 		const vector<double>& probs = actadapter->getTopicDistributionGivenAuthor(input);
@@ -113,7 +110,7 @@ namespace ACTService
 		int confid = atoi(input.c_str());
 		mashaler::Distribution result;
 
-		LOG(INFO) << boost::str(boost::format("[conf_id] %s") % input);
+		//LOG(INFO) << boost::str(boost::format("[conf_id] %s") % input);
 
 		ACTadapter* actadapter = ACTadapter::getInstance();
 		const vector<double>& probs = actadapter->getTopicDistributionGivenConf(confid);
@@ -132,7 +129,7 @@ namespace ACTService
 	{
 		mashaler::Distribution result;
 
-		LOG(INFO) << boost::str(boost::format("[athor_name] %s") % input);
+		//LOG(INFO) << boost::str(boost::format("[athor_name] %s") % input);
 
 		ACTadapter* actadapter = ACTadapter::getInstance();
 		const vector<double>& probs = actadapter->getTopicDistributionGivenConf(input);
@@ -152,7 +149,7 @@ namespace ACTService
 		int pubid = atoi(input.c_str());
 		mashaler::Distribution result;
 		
-		LOG(INFO) << boost::str(boost::format("[pub] %s") % input);
+		//LOG(INFO) << boost::str(boost::format("[pub] %s") % input);
 
 		ACTadapter* actadapter = ACTadapter::getInstance();
 		const vector<double>& probs = actadapter->getTopicDistributionGivenPub(pubid);
@@ -171,8 +168,6 @@ namespace ACTService
 	{
 		mashaler::Distribution result;
 		
-		LOG(INFO) << boost::str(boost::format("[query] %s") % input);
-
 		ACTadapter* actadapter = ACTadapter::getInstance();
 		const vector<double>& probs = actadapter->getTopicDistributionGivenQuery(input);
 		for (int tid = 0; tid < probs.size(); tid ++)
@@ -181,11 +176,11 @@ namespace ACTService
 		}
 		return result.SerializeToString(&output);
 	}
-	/*
+
 	/*
 	*Input: mashaler::IntQueryParams
 	*Output: mashaler::AuthorScoredResult
-	*
+	*/
 	bool getAuthorDistributionGivenTopic(const string& input, string& output)//(int tid, vector<string> returnedFields)
 	{
 		mashaler::IntQueryParams params;
@@ -193,36 +188,34 @@ namespace ACTService
 
 		if(params.ids_size()==0)
 			return false;
-		mashaler::AuthorScoredResult result;
-		mashaler::AuthorScorePair* pair;
+		mashaler::EntityScoredResult result;
+		mashaler::EntityScorePair* pair;
 		
-		LOG(INFO) << boost::str(boost::format("[topic_author] %d") % params.ids(0));
+		//LOG(INFO) << boost::str(boost::format("[topic_author] %d") % params.ids(0));
 
-		auto graph = IndexedGraphCache::instance().getGraph();
+		auto graph = IndexedGraphCache::instance().getGraph("aminer");
 		auto vi = graph->g->Vertices();
-		auto author = sae::serialization::convert_from_string<Author>(vi->Data());
 
 		ACTadapter* actadapter = ACTadapter::getInstance();
 		const unordered_map<int, double>& probs = actadapter->getAuthorDistributionGivenTopic(params.ids(0));
-		Document* doc;
 
 		for (auto iter = probs.begin(); iter != probs.end(); iter ++)
 		{
-			auto id = graph->idmap(std::make_pair("Author", iter->first));
+			auto id = graph->idmap.find(std::make_pair("Author", iter->first))->second;
 			vi->MoveTo(id);
-			doc = acollection->getDocumentByIndex(iter->first);
-			if(doc==NULL)
-				continue;
-			pair = result.add_author_score_pairs();
+			pair = result.add_entity_score_pairs();
 			pair->set_score(iter->second);
-			ProtoConverter::convertAuthor(acollection, *(Author*)doc, *(pair->mutable_author()), params.returned_fields());
+			auto de = pair->mutable_entity();
+			SearchServiceBase ssb(graph);
+			ssb.fillEntity(de, vi.get());
 		}
 		return result.SerializeToString(&output);
 	}
+
 	/*
 	*Input: mashaler::IntQueryParams
 	*Output: mashaler::PublicationScoredResult
-	*
+	*/
 	bool getPubDistributionGivenTopic(const string& input, string& output)//(int tid, vector<string> returnedFields)
 	{
 		mashaler::IntQueryParams params;
@@ -230,25 +223,26 @@ namespace ACTService
 
 		if(params.ids_size()==0)
 			return false;
-		mashaler::PublicationScoredResult result;
-		mashaler::PubScorePair* pair;
+		mashaler::EntityScoredResult result;
+		mashaler::EntityScorePair* pair;
 		
-		LOG(INFO) << boost::str(boost::format("[topic_pub] %d") % params.ids(0));
+		//LOG(INFO) << boost::str(boost::format("[topic_pub] %d") % params.ids(0));
 
-		IndexResource& resource = IndexResource::instance();
-		DocumentCollection* collection = resource.pubCollection();
+		auto graph = IndexedGraphCache::instance().getGraph("aminer");
+		auto vi = graph->g->Vertices();
+
 		ACTadapter* actadapter = ACTadapter::getInstance();
 		const unordered_map<int, double>& probs = actadapter->getPubDistributionGivenTopic(params.ids(0));
-		Document* doc;
 
 		for (auto iter = probs.begin(); iter != probs.end(); iter ++)
 		{
-			doc = collection->getDocumentByIndex(iter->first);
-			if(doc==NULL)
-				continue;
-			pair = result.add_pub_score_pairs();
+			auto id = graph->idmap.find(std::make_pair("Publication", iter->first))->second;
+			vi->MoveTo(id);
+			pair = result.add_entity_score_pairs();
 			pair->set_score(iter->second);
-			ProtoConverter::convertPub(collection, *doc, *(pair->mutable_publication()), params.returned_fields());
+			auto de = pair->mutable_entity();
+			SearchServiceBase ssb(graph);
+			ssb.fillEntity(de, vi.get());
 		}
 		return result.SerializeToString(&output);
 	}
@@ -256,7 +250,7 @@ namespace ACTService
 	/*
 	*Input: mashaler::IntQueryParams
 	*Output: mashaler::ConferenceScoredResult
-	*
+	*/
 	bool getConfDistributionGivenTopic(const string& input, string& output)//(int tid)
 	{
 		mashaler::IntQueryParams params;
@@ -264,26 +258,31 @@ namespace ACTService
 
 		if(params.ids_size()==0)
 			return false;
-		mashaler::ConferenceScoredResult result;
-		mashaler::ConfScorePair* pair;
+		mashaler::EntityScoredResult result;
+		mashaler::EntityScorePair* pair;
 		
-		LOG(INFO) << boost::str(boost::format("[topic_conf] %d") % params.ids(0));
+		//LOG(INFO) << boost::str(boost::format("[topic_conf] %d") % params.ids(0));
 
-		JConfMap* confadapter = JConfMap::getInstance();
+		auto graph = IndexedGraphCache::instance().getGraph("aminer");
+		auto vi = graph->g->Vertices();
+
 		ACTadapter* actadapter = ACTadapter::getInstance();
 		const unordered_map<int, double>& probs = actadapter->getConfDistributionGivenTopic(params.ids(0));
+		JConf jconf;
 		for (auto iter = probs.begin(); iter != probs.end(); iter ++)
 		{
 			int key = iter->first;
-			double value = iter->second;
 
-			JournalConferenceInfo* jconf = confadapter->getJConf(key);
-			assert(jconf!=NULL);
-			if(jconf)
+			auto id = graph->idmap.find(std::make_pair("JConf", key))->second;
+			vi->MoveTo(id);
+			jconf = sae::serialization::convert_from_string<JConf>(vi->Data());
+			if(&jconf)
 			{
-				pair = result.add_conf_score_pairs();
+				pair = result.add_entity_score_pairs();
 				pair->set_score(iter->second);
-				ProtoConverter::convert(*jconf, *pair->mutable_conf());
+				auto de = pair->mutable_entity();
+				SearchServiceBase ssb(graph);
+				ssb.fillEntity(de, vi.get());
 			}
 		}
 		return result.SerializeToString(&output);
@@ -292,17 +291,17 @@ namespace ACTService
 	/*
 	*Input: topic id toString
 	*Output: mashaler::StringDoublePairs
-	*
+	*/
 	bool getWordDistributionGivenTopic(const string& input, string& output)//(int tid)
 	{
 		int tid = atoi(input.c_str());
 		mashaler::StringDoublePairs result;
 		mashaler::StringDoublePair* pair;
 		
-		LOG(INFO) << boost::str(boost::format("[topic_word] %d") % input);
+		//LOG(INFO) << boost::str(boost::format("[topic_word] %d") % input);
 
 		ACTadapter* actadapter = ACTadapter::getInstance();
-		const unordered_map<string, double>& probs  = actadapter->getWordDistributionGivenTopic(tid);
+		const unordered_map<string, double>& probs = actadapter->getWordDistributionGivenTopic(tid);
 
 		for (auto iter = probs.begin(); iter != probs.end(); iter ++)
 		{
@@ -313,9 +312,6 @@ namespace ACTService
 		return result.SerializeToString(&output);
 	}
 }
-
-
-*/
 
 
 

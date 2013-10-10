@@ -140,10 +140,10 @@ struct IndexedGraph {
     }
 
     const std::unique_ptr<sae::io::MappedGraph> g;
+    std::map<std::pair<string, int>, int> idmap;
 
 protected:
     std::map<string, std::vector<indexing::Index>> vertexIndices;
-    std::map<std::pair<string, int>, int> idmap;
     TokenStreamer tokenStream;
 };
 

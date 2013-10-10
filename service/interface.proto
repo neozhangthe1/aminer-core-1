@@ -1,4 +1,7 @@
-package aminer;
+package mashaler;
+
+option java_outer_classname = "Mashaler";
+option java_package = "org.iminer.services.datacenter";
 
 message EntitySearchRequest {
     required string dataset = 1;
@@ -51,3 +54,62 @@ message InfluenceSearchResponse {
     repeated Influence influence = 2;
     repeated Influence influenced_by = 3;
 }
+
+message IntDoublePair {
+    optional int32 key = 1 [default = 0];
+    optional double value =2 [default = 0.0];
+}
+
+message IntDoublePairs {
+    repeated IntDoublePair items = 1;
+} 
+
+message StringDoublePair {
+    optional string key = 1;
+    optional double value =2 [default = 0.0];
+}
+
+message StringDoublePairs {
+    repeated StringDoublePair items = 1;
+}
+
+message Distribution {
+    repeated double values = 1;
+}
+
+message EntityScorePair {
+    optional DetailedEntity entity = 1;
+    optional double score = 2 [default = 0.0];
+}
+
+message EntityScoredResult {
+    repeated EntityScorePair entity_score_pairs = 1;
+    optional int32 total_count = 2 [default = 0];
+}
+
+message StringQueryParams {
+    optional string query = 1;
+    optional int32 offset = 2 [default = 0];
+    optional int32 count = 3 [default = 0];
+    repeated string searched_fields = 4;
+    repeated string returned_fields = 5;
+    repeated Condition conditions = 6;
+    optional string sort_type = 7;
+}
+
+message IntQueryParams {
+    repeated int32 ids = 1;
+    optional int32 offset = 2;
+    optional int32 count = 3;
+    repeated string searched_fields = 4;
+    repeated string returned_fields = 5;
+    repeated Condition conditions = 6;
+    optional string sort_type = 7;
+}
+
+message Condition {
+    optional string field = 1;
+    optional string op = 2; //< , > , = , >= , <=
+    optional string value = 3;
+}
+

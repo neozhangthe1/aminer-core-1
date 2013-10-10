@@ -5,8 +5,8 @@
 #include <vector>
 #include "indexing/analyzer/ArnetAnalyzer.h"
 #include "indexing/indexing.hpp"
+#include "gflags/gflags.h"
 
-#include "util/Logger.h"
 #include "indexed_graph_cache.hpp"
 #include "entity_searcher.hpp"
 

@@ -9,23 +9,10 @@
 DEFINE_string(aminer, "aminer", "aminer data prefix");
 
 using namespace std;
-using namespace aminer;
+using namespace mashaler;
 using namespace indexing;
 using namespace sae::io;
 using namespace zrpc;
-
-namespace {
-    string join(const string& sep, const vector<string>& values) {
-        std::stringstream ss;
-        for(size_t i = 0; i < values.size(); ++i)
-        {
-            if(i != 0)
-                ss << sep;
-            ss << values[i];
-        }
-        return ss.str();
-    }
-}
 
 struct AuthorService : public SearchServiceBase {
     AuthorService(IndexedGraph* ig) : SearchServiceBase(ig) {
@@ -92,30 +79,6 @@ struct AuthorService : public SearchServiceBase {
             }
         }
         return true;
-    }
-
-protected:
-    void fillEntity(DetailedEntity* de, VertexIterator* vi) {
-        de->set_id(vi->GlobalId());
-        auto author = parse<Author>(vi->Data());
-        de->set_title(author.names[0]);
-        de->set_original_id(author.id);
-        string s = author.position;
-        if (author.affiliation.size() > 0) {
-            s += ", " + author.affiliation;
-        }
-        de->set_description(s);
-        de->set_imgurl(author.imgurl);
-        de->set_topics(join(",", author.topics));
-        auto stat = de->add_stat();
-        stat->set_type("h-index");
-        stat->set_value(author.h_index);
-        stat = de->add_stat();
-        stat->set_type("citations");
-        stat->set_value(author.citation_number);
-        stat = de->add_stat();
-        stat->set_type("publications");
-        stat->set_value(author.publication_number);
     }
 };
 
