@@ -1,6 +1,8 @@
 #include "zrpc/zrpc.hpp"
 #include "indexing/search.hpp"
 
+DECLARE_string(aminer);
+
 #define SERVICE(method, request_type, response_type) \
     bool method(const std::string& request_proto, std::string& response_proto) { \
         request_type request; \
@@ -13,7 +15,7 @@
     bool method##_impl(const request_type& request, response_type& response)
 
 struct SearchServiceBase {
-    SearchServiceBase(std::unique_ptr<IndexedGraph>&& ig) : ig(std::move(ig)) {
+    SearchServiceBase(IndexedGraph* ig) : ig(ig) {
     }
 
 protected:
@@ -31,5 +33,5 @@ protected:
 
     virtual void fillEntity(aminer::DetailedEntity*, sae::io::VertexIterator*) = 0;
 
-    std::unique_ptr<IndexedGraph> ig;
+    IndexedGraph* ig;
 };

@@ -1,9 +1,16 @@
+#pragma once
+
 #include "indexed_graph.hpp"
 #include "aminer_data.hpp"
 
 struct IndexedGraphCache {
 public:
-    static IndexedGraph* getGraph(const char* name) {
+    static IndexedGraphCache& instance() {
+        static IndexedGraphCache gc;
+        return gc;
+    }
+
+    AMinerData* getGraph(const char* name) {
         if (ig == nullptr) {
             std::unique_ptr<AMinerData> graph(new AMinerData(name));
             ig = std::move(graph);
@@ -11,9 +18,10 @@ public:
         return ig.get();
     }
 
-private:
+private:    
     IndexedGraphCache() {
         ig = nullptr;
     }
-    unique_ptr<IndexedGraph> ig;
+
+    std::unique_ptr<AMinerData> ig;
 };

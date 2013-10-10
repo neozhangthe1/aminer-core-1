@@ -10,6 +10,38 @@ struct EntitySearcher {
         : ig(ig) {
     }
 
+    indexing::SearchResult get(WeightedType queryType, WeightedType searchType, const std::string& query, int limit = 5000) {
+
+        LOG(INFO) << "query: " << query;
+        // output
+        indexing::SearchResult result;
+
+        // get entity by id
+        std::istringstream ss(query);
+        std::string token;
+
+        while(std::getline(ss, token, ',')) {
+            auto aid = stoi(token);
+            auto vi = ig->g->Vertices();
+            vi->MoveTo(aid);
+            LOG(INFO) << "getting enity: " << vi->TypeName() << aid;
+            // auto it = queryType.find(vi->TypeName());
+            // if (it != queryType.end()) {
+            result.push_back(indexing::QueryItem{static_cast<int>(aid), 0});
+            // }
+            LOG(INFO) << "getting enity: " << result.size();
+        }
+
+        // std::sort(result.begin(), result.end());
+        if (result.size() > limit) {
+            result.resize(limit);
+        }
+
+        LOG(INFO) << "size: " << result.size();
+
+        return result;
+    }
+
     indexing::SearchResult search(WeightedType queryType, WeightedType searchType, const std::string& query, int limit = 5000) {
 
         // initial scores
@@ -43,6 +75,15 @@ struct EntitySearcher {
 
         return result;
     }
+
+    indexing::SearchResult getAuthorByName(const std::string& query) {
+        return ig->search("Author", query, 5000);
+    }
+
+    indexing::SearchResult getJConfByName(const std::string& query) {
+        return ig->search("JConf", query, 5000);
+    }
+
 
 protected:
     virtual void expand(std::map<sae::io::vid_t, double>& scores) {
