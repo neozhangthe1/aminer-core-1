@@ -21,7 +21,7 @@ int main(int argc, char** argv) {
     LOG(INFO) << "Setting up services...";
     event::Trigger("init_authorservice", nullptr, server);
     event::Trigger("init_pubservice", nullptr, server);
-    event::Trigger("init_jconfservice", nullptr, server);
+    event::Trigger("init_confservice", nullptr, server);
     event::Trigger("init_actservice", nullptr, server);
 
     LOG(INFO) << "Trying to bringing our services up...";
