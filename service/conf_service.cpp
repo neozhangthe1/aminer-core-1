@@ -30,7 +30,7 @@ static void init(void *sender, void *args) {
     RpcServer *server = reinterpret_cast<RpcServer *>(args);
     LOG(INFO) << "loading aminer graph for jconf service.";
     IndexedGraphCache& gc = IndexedGraphCache::instance();
-    auto *service = new JConfService(gc.getGraph(FLAGS_aminer.c_str()));
+    auto *service = new JConfService(gc.getGraph());
     auto b = zrpc::make_binder(*service);
     ADD_METHOD(ConfService_searchConferences);
     LOG(INFO) << "jconf service initialized. ";

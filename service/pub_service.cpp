@@ -30,7 +30,7 @@ static void init(void *sender, void *args) {
     RpcServer *server = reinterpret_cast<RpcServer *>(args);
     LOG(INFO) << "loading aminer graph for pubservice.";
     IndexedGraphCache& gc = IndexedGraphCache::instance();
-    auto *service = new PubService(gc.getGraph(FLAGS_aminer.c_str()));
+    auto *service = new PubService(gc.getGraph());
     auto b = zrpc::make_binder(*service);
     ADD_METHOD(PubService_searchPublications);
     LOG(INFO) << "publication service initialized.";

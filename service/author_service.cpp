@@ -82,15 +82,13 @@ struct AuthorService : public SearchServiceBase {
     }
 };
 
-std::unique_ptr<AMinerData> IndexedGraphCache::ig;
-
 #define ADD_METHOD(name) server->addMethod(#name, b(&AuthorService::name))
 
 static void init(void *sender, void *args) {
     RpcServer *server = reinterpret_cast<RpcServer *>(args);
     LOG(INFO) << "loading aminer graph for author service.";
     IndexedGraphCache& gc = IndexedGraphCache::instance();
-    auto *service = new AuthorService(gc.getGraph(FLAGS_aminer.c_str()));
+    auto *service = new AuthorService(gc.getGraph());
     auto b = zrpc::make_binder(*service);
     ADD_METHOD(AuthorService_searchAuthors);
     ADD_METHOD(AuthorService_authorSearchSuggest);

@@ -156,11 +156,11 @@ int ACT::getAuthorNaIdByACTaid(int actaid)//DONE
 		name = iter->second;
 
 	auto gc = IndexedGraphCache::instance();
-	auto searcher = EntitySearcher(gc.getGraph("aminer"));
+	auto searcher = EntitySearcher(gc.getGraph());
 	auto sr = searcher.getAuthorByName(name);
 	if (sr.size() > 0)
 	{
-		auto vi = gc.getGraph("aminer")->g->Vertices();
+		auto vi = gc.getGraph()->g->Vertices();
 		vi->MoveTo(sr[0].docId);
 		auto author = sae::serialization::convert_from_string<Author>(vi->Data());
 		return author.id;
@@ -176,11 +176,11 @@ int ACT::getConfIdByACTcid(int actcid)//DONE
 		confname = iter->second;
 
 	auto gc = IndexedGraphCache::instance();
-	auto searcher = EntitySearcher(gc.getGraph("aminer"));
+	auto searcher = EntitySearcher(gc.getGraph());
 	auto sr = searcher.getJConfByName(confname);
 	if (sr.size() > 0)
 	{
-		auto vi = gc.getGraph("aminer")->g->Vertices();
+		auto vi = gc.getGraph()->g->Vertices();
 		vi->MoveTo(sr[0].docId);
 		auto jconf = sae::serialization::convert_from_string<JConf>(vi->Data());
 		return jconf.id;
@@ -209,7 +209,7 @@ string ACT::getWordByACTwid(int actwid)//DONE
 //Add a cache to speed up
 int ACT::getACTaidByAuthorNaId(int naid)//DONE
 {
-	auto graph = IndexedGraphCache::instance().getGraph("aminer");
+	auto graph = IndexedGraphCache::instance().getGraph();
 	if(act_aid_map.empty())
 	{
 		this->act_aid_map_mutex.lock();
@@ -253,7 +253,7 @@ int ACT::getACTaidByAuthorNaId(int naid)//DONE
 //Add a cache to speed up
 int ACT::getACTcidByConfid(int confid)//DONE
 {
-	auto graph = IndexedGraphCache::instance().getGraph("aminer");
+	auto graph = IndexedGraphCache::instance().getGraph();
 	if(!act_conf_map.size())
 	{
         std::lock_guard<std::mutex> lock(this->act_conf_map_mutex);
@@ -726,7 +726,7 @@ vector<double> ACTadapter::getTopicDistributionGivenPub(int pubid, Publication c
 	double alpha = _act.parameter.alpha;
 
 	vector<double> result(ntopic, 0.0);
-	auto graph = IndexedGraphCache::instance().getGraph("aminer");
+	auto graph = IndexedGraphCache::instance().getGraph();
 
 	int pid = _act.getACTpidByPubId(pubid);
 	if (pid == -1)
@@ -893,13 +893,13 @@ unordered_map<string, double> ACTadapter::getWordDistributionGivenTopic(int tid)
 vector<double> ACTadapter::getTopicDistributionGivenAuthor(string name)//DONE
 {
 	auto gc = IndexedGraphCache::instance();
-	auto searcher = EntitySearcher(gc.getGraph("aminer"));
+	auto searcher = EntitySearcher(gc.getGraph());
 	auto sr = searcher.getAuthorByName(name);
 	int naid = -2;
 
 	if (sr.size() > 0)
 	{
-		auto vi = gc.getGraph("aminer")->g->Vertices();
+		auto vi = gc.getGraph()->g->Vertices();
 		vi->MoveTo(sr[0].docId);
 		auto author = sae::serialization::convert_from_string<Author>(vi->Data());
 		naid = author.id;
@@ -911,11 +911,11 @@ vector<double> ACTadapter::getTopicDistributionGivenAuthor(string name)//DONE
 vector<double> ACTadapter::getTopicDistributionGivenConf(string confname)//DONE
 {
 	auto gc = IndexedGraphCache::instance();
-	auto searcher = EntitySearcher(gc.getGraph("aminer"));
+	auto searcher = EntitySearcher(gc.getGraph());
 	auto sr = searcher.getJConfByName(confname);
 	if (sr.size() > 0)
 	{
-		auto vi = gc.getGraph("aminer")->g->Vertices();
+		auto vi = gc.getGraph()->g->Vertices();
 		vi->MoveTo(sr[0].docId);
 		auto jconf = sae::serialization::convert_from_string<JConf>(vi->Data());
 		int confid = jconf.id;
@@ -979,7 +979,7 @@ bool ACTadapter::getTopTopicGivenPub(vector<pair<int, double>>& result, int pub_
 	int pid = _act.getACTpidByPubId(pub_id);
 	if(pid==-1)
 	{
-		auto graph = IndexedGraphCache::instance().getGraph("aminer");
+		auto graph = IndexedGraphCache::instance().getGraph();
 		auto vi = graph->g->Vertices();
 		auto id = graph->idmap.find(std::make_pair("Publication", pub_id))->second;
 		vi->MoveTo(id);

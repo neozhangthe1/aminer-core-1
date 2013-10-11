@@ -193,7 +193,7 @@ namespace ACTService
 		
 		//LOG(INFO) << boost::str(boost::format("[topic_author] %d") % params.ids(0));
 
-		auto graph = IndexedGraphCache::instance().getGraph("aminer");
+		auto graph = IndexedGraphCache::instance().getGraph();
 		auto vi = graph->g->Vertices();
 
 		ACTadapter* actadapter = ACTadapter::getInstance();
@@ -228,7 +228,7 @@ namespace ACTService
 		
 		//LOG(INFO) << boost::str(boost::format("[topic_pub] %d") % params.ids(0));
 
-		auto graph = IndexedGraphCache::instance().getGraph("aminer");
+		auto graph = IndexedGraphCache::instance().getGraph();
 		auto vi = graph->g->Vertices();
 
 		ACTadapter* actadapter = ACTadapter::getInstance();
@@ -263,7 +263,7 @@ namespace ACTService
 		
 		//LOG(INFO) << boost::str(boost::format("[topic_conf] %d") % params.ids(0));
 
-		auto graph = IndexedGraphCache::instance().getGraph("aminer");
+		auto graph = IndexedGraphCache::instance().getGraph();
 		auto vi = graph->g->Vertices();
 
 		ACTadapter* actadapter = ACTadapter::getInstance();

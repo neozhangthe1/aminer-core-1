@@ -6,20 +6,19 @@
 struct IndexedGraphCache {
 public:
     static IndexedGraphCache& instance() {
-        IndexedGraphCache::ig = nullptr;
         static IndexedGraphCache gc;
         return gc;
     }
 
-    AMinerData* getGraph(const char* name) {
-        return ig.get();
+    AMinerData* getGraph() {
+        return ig;
     }
 
 //private:    
     IndexedGraphCache() {
-        std::unique_ptr<AMinerData> graph(new AMinerData(FLAGS_aminer.c_str()));
-        ig = std::move(graph);
+        AMinerData* graph = &AMinerData::instance();
+        ig = graph;
     }
 
-    static std::unique_ptr<AMinerData> ig;
+    AMinerData* ig;
 };

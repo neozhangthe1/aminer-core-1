@@ -1,6 +1,7 @@
 #pragma once
 #include "aminer.hpp"
 #include "indexed_graph.hpp"
+#include "gflags/gflags.h"
 
 struct AMinerData : public IndexedGraph {
     AMinerData(char const * prefix) : IndexedGraph(prefix) {
@@ -28,6 +29,11 @@ struct AMinerData : public IndexedGraph {
             vi->Next();
         } 
         LOG(INFO) << "building id map finished";
+    }
+
+    static AMinerData& instance() {
+        static AMinerData _amd(FLAGS_aminer.c_str());
+        return _amd;
     }
 
     static std::map<std::string, std::string> authorDocExtractor(sae::io::VertexIterator* it) {
