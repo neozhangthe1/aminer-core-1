@@ -5,6 +5,9 @@
 
 DEFINE_int32(port, 40112, "server port");
 DEFINE_int32(threads, 20, "server threads");
+DEFINE_string(index, "/var/saedata/saedemo_data/aminer.index", "Serialized index.");
+DEFINE_string(idmap, "/var/saedata/saedemo_data/aminer.idmap", "Serialized idmap.");
+DEFINE_string(actdata, "/var/saedata/saedemo_data/aminer.act", "Serialized idmap.");
 
 using namespace std;
 using namespace zrpc;

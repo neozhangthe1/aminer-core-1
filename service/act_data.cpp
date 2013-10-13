@@ -8,7 +8,8 @@
 #include "entity_searcher.hpp"
 #include "glog/logging.h"
 
-DEFINE_string(actDir, "actData/", "Directory of ACT data");
+DEFINE_string(actDir, "/var/saedata/actData/", "Directory of ACT data");
+DECLARE_string(actdata);
 
 ACT::ACT()
 	:PRECISION(0.000001),FILEBUFFERSIZE(1024000),STRINGBUFFERSIZE(1024)
@@ -928,7 +929,25 @@ ACTadapter::ACTadapter()//DONE
 	:MAX_TOP_TOPIC_COUNT(5),
 	TOPIC_THRESHOLD(0.05)
 {
-	_act.load();
+    struct stat buf;
+    int result;
+    result =stat(FLAGS_actdata.c_str(), &buf );
+
+    if (result != 0) {
+        LOG(INFO) << "Serialized actdata file not found";
+        _act.load();
+        std::ofstream fout("aminer.act", std::fstream::binary);
+        sae::serialization::OSerializeStream encoder(&fout);
+        encoder << _act;
+        fout.close();
+    }
+    LOG(INFO) << "Load serialized act data..";
+    std::ifstream finv(FLAGS_actdata.c_str());
+    sae::serialization::ISerializeStream decoderv(&finv);
+    LOG(INFO) << "Deserializing...";
+    decoderv >> _act;
+    finv.close();
+    LOG(INFO) << "Serialized actdata loaded..";
 }
 
 ACTadapter::~ACTadapter()//DONE

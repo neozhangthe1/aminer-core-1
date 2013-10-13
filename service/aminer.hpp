@@ -53,7 +53,7 @@ namespace sae {
         namespace custom_serialization_impl {
             template <>
             struct serialize_impl<sae::serialization::OSerializeStream, Author> {
-                static void run(sae::serialization::OSerializeStream& ostr, Author& a) {
+                static void run(sae::serialization::OSerializeStream& ostr, const Author& a) {
                     ostr << a.id << a.names << a.position << a.affiliation << a.h_index << a.citation_number << a.publication_number << a.topics << a.imgurl;
                 }
             };
@@ -73,7 +73,7 @@ namespace sae {
         namespace custom_serialization_impl {
             template <>
             struct serialize_impl<sae::serialization::OSerializeStream, Publication> {
-                static void run(sae::serialization::OSerializeStream& ostr, Publication& p) {
+                static void run(sae::serialization::OSerializeStream& ostr, const Publication& p) {
                     ostr << p.id << p.pubkey << p.year << p.title << p.abstract << p.jconf << p.citation_number << p.topics;
                 }
             };
@@ -93,7 +93,7 @@ namespace sae {
         namespace custom_serialization_impl {
             template <>
             struct serialize_impl<sae::serialization::OSerializeStream, JConf> {
-                static void run(sae::serialization::OSerializeStream& ostr, JConf& j) {
+                static void run(sae::serialization::OSerializeStream& ostr, const JConf& j) {
                     ostr << j.id << j.name;
                 }
             };

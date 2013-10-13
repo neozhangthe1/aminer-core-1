@@ -6,7 +6,7 @@
 #include "aminer_data.hpp"
 #include "indexed_graph_cache.hpp"
 
-DEFINE_string(aminer, "aminer", "aminer data prefix");
+DEFINE_string(aminer, "/var/saedata/saedemo_data/aminer", "aminer data prefix");
 
 using namespace std;
 using namespace mashaler;
