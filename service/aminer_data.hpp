@@ -80,7 +80,7 @@ struct AMinerData : public IndexedGraph {
     bool serializeIDMap() {
         struct stat buf;
         int result;
-        result =stat(FLAGS_idmap.c_str(), &buf );
+        result = 1;//stat(FLAGS_idmap.c_str(), &buf );
 
         if (result != 0) {
             LOG(INFO) << "Serialized idmap file not found";

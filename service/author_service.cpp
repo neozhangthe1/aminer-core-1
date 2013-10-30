@@ -35,12 +35,6 @@ struct AuthorService : public SearchServiceBase {
     }
 
     SERVICE(AuthorService_getEntityById, EntitySearchRequest, EntitySearchResponse) {
-        // auto aid = stoi(request.query());
-        // response.set_entity_id(aid);
-
-        // auto vit = ig->g->Vertices();
-        // vit->MoveTo(aid);
-        // fillEntity(response.add_entity(), vi.get());
         auto searcher = EntitySearcher(ig);
         auto results = searcher.get(WeightedType{{"Author", 1.0}}, WeightedType{{"Author", 1.0}, {"Publication", 1.0}}, request.query());
         fillSearchResponse(request, response, results);
@@ -49,8 +43,43 @@ struct AuthorService : public SearchServiceBase {
 
     SERVICE(AuthorService_getEntityWithSameNameByName, EntitySearchRequest, EntitySearchResponse) {
         auto searcher = EntitySearcher(ig);
-        auto results = searcher.search(WeightedType{{"Author", 1.0}}, WeightedType{{"Author", 1.0}, {"Publication", 1.0}}, request.query());
+        auto results = searcher.search(WeightedType{{"Author", 1.0}}, WeightedType{{"Author", 1.0}}, request.query());
         fillSearchResponse(request, response, results);
+        return true;
+    }
+
+    SERVICE(AuthorService_getEntityWithSameNameById, EntitySearchRequest, EntitySearchResponse) {
+        auto searcher = EntitySearcher(ig);
+        auto aid = stoi(request.query());
+        auto pos = ig->idmap.find(std::make_pair("Author",aid));
+        auto sid = pos->second;
+        LOG(INFO) << "sae id: " << sid;
+
+        auto vi = ig->g->Vertices();
+        vi->MoveTo(sid);
+
+        auto author = parse<Author>(vi->Data());
+        std::map<int,double> score_map;
+        for(auto name : author.names) {
+            auto r = searcher.search(WeightedType{{"Author", 1.0}}, WeightedType{{"Author", 1.0}}, request.query());
+            for(auto item : r) {
+                if(score_map.find(item.docId) != score_map.end()) {
+                    score_map[item.docId] = item.score;
+                } else {
+                    score_map[item.docId] += item.score;
+                }
+                
+            }
+        }
+
+        indexing::SearchResult result;
+        auto it = score_map.begin();
+        for(; it != score_map.end(); ++it) {
+            result.push_back(indexing::QueryItem{static_cast<int>(it->first), (it->second)});
+        }
+        std::sort(result.begin(), result.end());
+
+        fillSearchResponse(request, response, result);
         return true;
     }
 
@@ -95,6 +124,7 @@ static void init(void *sender, void *args) {
     ADD_METHOD(AuthorService_getEntityById);
     ADD_METHOD(AuthorService_getEntityWithSameNameByName);
     ADD_METHOD(InfluenceSearchByAuthor);
+    ADD_METHOD(AuthorService_getEntityWithSameNameById);
     LOG(INFO) << "author service initialized.";
 }
 

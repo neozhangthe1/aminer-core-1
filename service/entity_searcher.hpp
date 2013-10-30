@@ -23,13 +23,30 @@ struct EntitySearcher {
 
         while(std::getline(ss, token, ',')) {
             auto aid = stoi(token);
+            auto it = searchType.begin();
+            LOG(INFO) << "getting enity: " << it->first << aid;
+            auto pos = ig->idmap.find(std::make_pair(it->first,aid));
+            auto sid = pos->second;
+            LOG(INFO) << "sae id: " << sid;
             auto vi = ig->g->Vertices();
-            vi->MoveTo(aid);
-            LOG(INFO) << "getting enity: " << vi->TypeName() << aid;
-            // auto it = queryType.find(vi->TypeName());
-            // if (it != queryType.end()) {
-            result.push_back(indexing::QueryItem{static_cast<int>(aid), 0});
-            // }
+            vi->MoveTo(sid);
+            it = queryType.begin();
+            LOG(INFO) << "query type: " << it->first;
+            if(vi->TypeName() == it->first){
+                result.push_back(indexing::QueryItem{static_cast<int>(sid), 0});
+            } else{
+                for (auto ei = vi->InEdges(); ei->Alive(); ei->Next()) {
+                    if (ei->Source()->TypeName() == it->first){
+                        result.push_back(indexing::QueryItem{static_cast<int>(ei->SourceId()), 0});
+                    }
+                }
+                for (auto ei = vi->OutEdges(); ei->Alive(); ei->Next()) {
+                    if (ei->Target()->TypeName() == it->first){
+                        result.push_back(indexing::QueryItem{static_cast<int>(ei->TargetId()), 0});
+                    }
+                }
+            }
+            
             LOG(INFO) << "getting enity: " << result.size();
         }
 

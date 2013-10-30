@@ -4,15 +4,13 @@ option java_outer_classname = "Mashaler";
 option java_package = "org.iminer.services.datacenter";
 
 message EntitySearchRequest {
-    required string dataset = 1;
-    required string query = 2;
-    optional int32 offset = 3;
-    optional int32 count = 4;
+    required string query = 1;
+    optional int32 offset = 2;
+    optional int32 count = 3;
 }
 
 message EntityDetailRequest {
-    required string dataset = 1;
-    repeated int32 id = 2;
+    repeated int32 id = 1;
 }
 
 message Stat {

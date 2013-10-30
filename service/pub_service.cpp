@@ -22,6 +22,13 @@ struct PubService : public SearchServiceBase {
         fillSearchResponse(request, response, results);
         return true;
     }
+
+    SERVICE(PubService_getPublicationsByNaId, EntitySearchRequest, EntitySearchResponse) {
+        auto searcher = EntitySearcher(ig);
+        auto results = searcher.get(WeightedType{{"Publication", 1.0}}, WeightedType{{"Author", 1.0}}, request.query());
+        fillSearchResponse(request, response, results);
+        return true;
+    }
 };
 
 #define ADD_METHOD(name) server->addMethod(#name, b(&PubService::name))
@@ -33,6 +40,7 @@ static void init(void *sender, void *args) {
     auto *service = new PubService(gc.getGraph());
     auto b = zrpc::make_binder(*service);
     ADD_METHOD(PubService_searchPublications);
+    ADD_METHOD(PubService_getPublicationsByNaId);
     LOG(INFO) << "publication service initialized.";
 }
 
